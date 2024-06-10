@@ -1,0 +1,21 @@
+import React from 'react'
+import './navbar.css'
+import Image from 'next/image'
+
+interface Props {}
+
+function Navbar(props: Props) {
+    const {} = props
+
+    return (
+        <nav className='mx-10 my-12 flex justify-between items-center'>
+            <h2 className='font-["Borel"] text-2xl font-semibold cursor-pointer'>shubh.com</h2>
+            <div className='flex justify-center items-center gap-6'>
+                <p className='font-light text-lg'>menu</p>
+                <Image src='/icons/menu.png' width={30} height={30} alt='' />
+            </div>
+        </nav>
+    )
+}
+
+export default Navbar
