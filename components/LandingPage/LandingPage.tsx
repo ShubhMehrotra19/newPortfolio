@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useEffect, useState } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
@@ -6,19 +6,16 @@ import Lenis from "@studio-freight/lenis";
 import Navbar from "../navbar/navbar";
 import Welcome from "../effect/Effect";
 
+gsap.registerPlugin(ScrollTrigger);
 
 interface Props {}
 
 function LandingPage(props: Props) {
-  const [isWelcomeAnimationComplete, setIsWelcomeAnimationComplete] =
-    useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isWelcomeAnimationComplete, setIsWelcomeAnimationComplete] = useState(false);
 
   useEffect(() => {
     const lenis = new Lenis();
-    
-    lenis.on("scroll", (e: any) => {
-      console.log(e);
-    });
 
     lenis.on("scroll", ScrollTrigger.update);
 
@@ -42,11 +39,47 @@ function LandingPage(props: Props) {
         duration: 1,
         onComplete: () => setIsWelcomeAnimationComplete(true),
       });
+  }, []);
 
+  const handleMouseEnter = () => {
+    const cursor = document.querySelector(".cursorCustom");
+    gsap.to(cursor, {
+      scale: 6,
+      backgroundColor: "white",
+      duration: 0.2,
+    });
+  };
+
+  const handleMouseLeave = () => {
+    const cursor = document.querySelector(".cursorCustom");
+    gsap.to(cursor, {
+      scale: 1,
+      backgroundColor: "black",
+      delay: 0.5,
+      duration: 0.2,
+    });
+  };
+
+  useEffect(() => {
+    const cursor = document.querySelector(".cursorCustom");
+
+    const handleMouseMove = (event: MouseEvent) => {
+      gsap.to(cursor, {
+        x: event.clientX - 3,
+        y: event.clientY - 145,
+        duration: 1,
+      });
+    };
+
+    document.addEventListener("mousemove", handleMouseMove);
+
+    return () => {
+      document.removeEventListener("mousemove", handleMouseMove);
+    };
   }, []);
 
   return (
-    <div>
+    <>
       <div
         id="welcome"
         style={{ display: isWelcomeAnimationComplete ? "none" : "block" }}
@@ -60,9 +93,13 @@ function LandingPage(props: Props) {
           display: isWelcomeAnimationComplete ? "block" : "none",
         }}
       >
-        <Navbar />
+        <Navbar
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+        />
+        <div className="cursorCustom h-3 w-3 bg-black rounded-full fixed"></div>
       </div>
-    </div>
+    </>
   );
 }
 
