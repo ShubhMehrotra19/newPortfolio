@@ -12,7 +12,8 @@ gsap.registerPlugin(ScrollTrigger);
 function LandingPage(props: any) {
   const [isWelcomeAnimationComplete, setIsWelcomeAnimationComplete] =
     useState(false);
-  const [isMenu, setIsMenu] = useState(false); // for the menu part hovering
+  const [isMenu, setIsMenu] = useState(false); 
+
   const cursorRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -49,8 +50,8 @@ function LandingPage(props: any) {
 
     const handleMouseMove = (e: MouseEvent) => {
       gsap.to(cursor, {
-        x: e.clientX,
-        y: e.clientY,
+        x: e.clientX - 6,
+        y: e.clientY - 10,
         duration: 0.8,
       });
     };
