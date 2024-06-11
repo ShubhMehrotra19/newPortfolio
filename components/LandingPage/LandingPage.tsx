@@ -1,15 +1,17 @@
-"use client"
+"use client";
 import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import Lenis from "@studio-freight/lenis";
 import Navbar from "../navbar/navbar";
 import Welcome from "../effect/Effect";
+import Hero from "../hero/hero";
 
 gsap.registerPlugin(ScrollTrigger);
 
-function LandingPage(props : any) {
-  const [isWelcomeAnimationComplete, setIsWelcomeAnimationComplete] = useState(false);
+function LandingPage(props: any) {
+  const [isWelcomeAnimationComplete, setIsWelcomeAnimationComplete] =
+    useState(false);
   const [isMenu, setIsMenu] = useState(false); // for the menu part hovering
   const cursorRef = useRef<HTMLDivElement>(null);
 
@@ -49,7 +51,7 @@ function LandingPage(props : any) {
       gsap.to(cursor, {
         x: e.clientX,
         y: e.clientY,
-        duration: 1,
+        duration: 0.8,
       });
     };
 
@@ -65,7 +67,7 @@ function LandingPage(props : any) {
 
     if (!cursor) return;
 
-    const menu = document.querySelector('.menu');
+    const menu = document.querySelector(".menu");
 
     if (!menu) return;
 
@@ -90,12 +92,27 @@ function LandingPage(props : any) {
 
   return (
     <>
-      <div id="welcome" style={{ display: isWelcomeAnimationComplete ? "none" : "block" }}>
+      <div
+        id="welcome"
+        style={{ display: isWelcomeAnimationComplete ? "none" : "block" }}
+      >
         <Welcome />
       </div>
-      <div id="content" style={{ opacity: isWelcomeAnimationComplete ? 1 : 0, display: isWelcomeAnimationComplete ? "block" : "none" }}>
+      <div
+        id="content"
+        style={{
+          opacity: isWelcomeAnimationComplete ? 1 : 0,
+          display: isWelcomeAnimationComplete ? "block" : "none",
+        }}
+      >
         <Navbar />
-        <div ref={cursorRef} className={`cursorCustom h-3 w-3 fixed top-0 left-0 pointer-events-none z-[500] bg-black rounded-full text-white font-light overflow-hidden flex justify-center items-center text-center ${isMenu ? `text-[2.5px]` : `text-[0px]`}`}>
+        <Hero />
+        <div
+          ref={cursorRef}
+          className={`cursorCustom h-3 w-3 fixed top-0 left-0 pointer-events-none z-[500] bg-black rounded-full text-white font-light overflow-hidden flex justify-center items-center text-center ${
+            isMenu ? `text-[2.5px]` : `text-[0px]`
+          }`}
+        >
           {`${isMenu ? "click me" : ""}`}
         </div>
       </div>
