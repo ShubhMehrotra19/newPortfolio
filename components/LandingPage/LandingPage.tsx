@@ -1,5 +1,5 @@
-"use client";
-import React, { useEffect, useState } from "react";
+"use client"
+import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import Lenis from "@studio-freight/lenis";
@@ -8,11 +8,10 @@ import Welcome from "../effect/Effect";
 
 gsap.registerPlugin(ScrollTrigger);
 
-interface Props {}
-
-function LandingPage(props: Props) {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+function LandingPage(props : any) {
   const [isWelcomeAnimationComplete, setIsWelcomeAnimationComplete] = useState(false);
+  const [isMenu, setIsMenu] = useState(false); // for the menu part hovering
+  const cursorRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const lenis = new Lenis();
@@ -41,32 +40,15 @@ function LandingPage(props: Props) {
       });
   }, []);
 
-  const handleMouseEnter = () => {
-    const cursor = document.querySelector(".cursorCustom");
-    gsap.to(cursor, {
-      scale: 6,
-      backgroundColor: "white",
-      duration: 0.2,
-    });
-  };
-
-  const handleMouseLeave = () => {
-    const cursor = document.querySelector(".cursorCustom");
-    gsap.to(cursor, {
-      scale: 1,
-      backgroundColor: "black",
-      delay: 0.5,
-      duration: 0.2,
-    });
-  };
-
   useEffect(() => {
-    const cursor = document.querySelector(".cursorCustom");
+    const cursor = cursorRef.current;
 
-    const handleMouseMove = (event: MouseEvent) => {
+    if (!cursor) return;
+
+    const handleMouseMove = (e: MouseEvent) => {
       gsap.to(cursor, {
-        x: event.clientX - 3,
-        y: event.clientY - 145,
+        x: e.clientX,
+        y: e.clientY,
         duration: 1,
       });
     };
@@ -78,26 +60,44 @@ function LandingPage(props: Props) {
     };
   }, []);
 
+  useEffect(() => {
+    const cursor = cursorRef.current;
+
+    if (!cursor) return;
+
+    const menu = document.querySelector('.menu');
+
+    if (!menu) return;
+
+    const handleMenuEnter = () => {
+      setIsMenu(true);
+      gsap.to(cursor, { scale: 6 });
+    };
+
+    const handleMenuLeave = () => {
+      setIsMenu(false);
+      gsap.to(cursor, { scale: 1 });
+    };
+
+    menu.addEventListener("mouseenter", handleMenuEnter);
+    menu.addEventListener("mouseleave", handleMenuLeave);
+
+    return () => {
+      menu.removeEventListener("mouseenter", handleMenuEnter);
+      menu.removeEventListener("mouseleave", handleMenuLeave);
+    };
+  }, []);
+
   return (
     <>
-      <div
-        id="welcome"
-        style={{ display: isWelcomeAnimationComplete ? "none" : "block" }}
-      >
+      <div id="welcome" style={{ display: isWelcomeAnimationComplete ? "none" : "block" }}>
         <Welcome />
       </div>
-      <div
-        id="content"
-        style={{
-          opacity: isWelcomeAnimationComplete ? 1 : 0,
-          display: isWelcomeAnimationComplete ? "block" : "none",
-        }}
-      >
-        <Navbar
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-        />
-        <div className="cursorCustom h-3 w-3 bg-black rounded-full fixed"></div>
+      <div id="content" style={{ opacity: isWelcomeAnimationComplete ? 1 : 0, display: isWelcomeAnimationComplete ? "block" : "none" }}>
+        <Navbar />
+        <div ref={cursorRef} className={`cursorCustom h-3 w-3 fixed top-0 left-0 pointer-events-none z-[500] bg-black rounded-full text-white font-light overflow-hidden flex justify-center items-center text-center ${isMenu ? `text-[2.5px]` : `text-[0px]`}`}>
+          {`${isMenu ? "click me" : ""}`}
+        </div>
       </div>
     </>
   );
