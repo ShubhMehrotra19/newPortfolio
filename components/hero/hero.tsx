@@ -30,7 +30,7 @@ function Hero(props: Props) {
     tl.from(
       ".heading1",
       {
-        delay: 4,
+        delay: 4.5,
         opacity: 0,
         y: 100,
         duration: 1,
@@ -60,13 +60,11 @@ function Hero(props: Props) {
     tl.to(
       ".heading2",
       {
-        delay: 0.2,
         opacity: 1,
         y: 0,
         duration: 1,
         ease: "power4.out",
       },
-      "<"
     );
 
     tl.from(".subHeading", {
@@ -84,7 +82,6 @@ function Hero(props: Props) {
         duration: 1,
         ease: "power4.out",
       },
-      "<"
     );
 
     tl.from(".base", {
