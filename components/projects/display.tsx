@@ -31,7 +31,7 @@ function Display({ imageLink, projectName, shortDes, gitLink, deployedLink }: an
                     <p className={`font-semibold ${anton.className} text-4xl`}>{projectName}</p>
                     <p className={`font-light ${openSans.className} text-base`}>{shortDes}</p>
                 </div>
-                <Link href={gitLink} target='_blank'><Image src='/icons/arrow_link.png' ref={linkedRef} className='linked cursor-pointer hover:rotate-90 hover:scale-[102%] transition duration-500 delay-75 ease-in-out' alt='arrow' height={100} width={100} /></Link>
+                <Link href={gitLink} target='_blank'><Image src='/icons/arrow_link.png' ref={linkedRef} className='linked cursor-pointer hover:rotate-90 hover:scale-110 transition duration-500 delay-75 ease-in-out' alt='arrow' height={100} width={100} /></Link>
             </div>
         </div>
     )

@@ -21,9 +21,9 @@ interface Props {}
 
 function Marquee(props: Props) {
   const {} = props;
-  const textWidth = 5600; 
+  const textWidth = 8000; 
   return (
-    <section className="w-[1800px] h-[160px] bg-[#B2D12E] flex justify-center items-center mb-3 rotate-[3deg] overflow-hidden">
+    <section className="w-[1800px] h-[160px] bg-[#B2D12E] flex justify-center items-center mb-3 -ml-2 rotate-[3deg] overflow-hidden">
       <div className="scrolling-text whitespace-nowrap">
         <span
           className={`text-[120px] ${anton.className} text-white inline-block`}

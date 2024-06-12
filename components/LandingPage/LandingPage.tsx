@@ -30,7 +30,7 @@ function LandingPage(props: any) {
     lenis.on("scroll", ScrollTrigger.update);
 
     gsap.ticker.add((time) => {
-      lenis.raf(time * 800);
+      lenis.raf(time * 900);
     });
 
     gsap.ticker.lagSmoothing(0);
