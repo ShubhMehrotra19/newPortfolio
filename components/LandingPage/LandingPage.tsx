@@ -235,13 +235,14 @@ function LandingPage(props: any) {
           ref={cursorRef}
           style={{
             backdropFilter: isButton || isTalking ? `blur(0.5px)` : `blur(0px)`,
+            color: isLinked ? `#000` : `#fff`,
           }}
           className={`cursorCustom h-3 w-3 fixed top-0 left-0 pointer-events-none z-[500] rounded-full text-white font-light overflow-hidden flex justify-center items-center text-center ${
             isMenu ? `text-[2.5px] bg-black` : `text-[0px] bg-black`
           } ${isVideo ? `text-[5px] bg-white` : `text-[0px] bg-black`}
           ${isButton ? `bg-transparent text-[5px]` : `text-[0px] bg-black`}
           ${isTalking ? `bg-transparent text-[5px]` : `text-[0px] bg-black`}
-          ${isLinked ? `bg-white text-[2.5px] text-black font-medium` : `text-[0px] bg-black`}
+          ${isLinked ? `bg-white text-[2.5px] font-medium` : `text-[0px] bg-black`}
           ${isProject ? `bg-white/35 text-[5px]` : `text-[0px] bg-black`}`}
         >
           {`${isMenu ? "click me" : ""}`}

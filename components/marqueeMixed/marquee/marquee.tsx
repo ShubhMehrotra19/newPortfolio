@@ -1,18 +1,32 @@
 // marquee.tsx
 import React from "react";
 import "./marquee.css";
+import { Anton, Open_Sans } from 'next/font/google';
+
+export const anton = Anton({
+  weight: ['400'],
+  style: ['normal'],
+  subsets: ['latin-ext', 'latin', 'vietnamese'],
+  display: 'swap',
+}) 
+
+export const openSans = Open_Sans({
+  weight: ['300', '800'],
+  style: ['normal'],
+  subsets: ['latin-ext', 'latin', 'vietnamese'],
+  display: 'swap',
+})
 
 interface Props {}
 
 function Marquee(props: Props) {
   const {} = props;
-  const textWidth = 5600; // Adjust this value according to your text length
-
+  const textWidth = 5600; 
   return (
     <section className="w-[1800px] h-[160px] bg-[#B2D12E] flex justify-center items-center mb-3 rotate-[3deg] overflow-hidden">
       <div className="scrolling-text whitespace-nowrap">
         <span
-          className="text-[120px] font-['Anton'] text-white inline-block"
+          className={`text-[120px] ${anton.className} text-white inline-block`}
           style={{ width: `${textWidth}px` }}
         >
           NEXT.JS &nbsp; # &nbsp; TAILWIND &nbsp; # &nbsp; REACT.JS &nbsp; #

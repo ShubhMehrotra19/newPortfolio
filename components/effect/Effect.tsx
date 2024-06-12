@@ -1,6 +1,15 @@
 import React, { useEffect } from 'react';
-import './effect.css';
 import gsap from 'gsap';
+import { Roboto } from 'next/font/google';
+
+export const roboto = Roboto({
+  weight: ['100', '300', '400', '500', '700', '900'],
+  style: ['normal', 'italic'],
+  subsets: ['latin-ext', 'latin', 'vietnamese'],
+  display: 'swap',
+}) 
+
+
 
 interface Props {}
 
@@ -20,7 +29,6 @@ function Effect(props: Props) {
             ease: 'power3.inOut',
         });
 
-        // Animate lastName in, slightly delayed
         tl.fromTo('.lastName', {
             y: 100,
             opacity: 0,
@@ -43,7 +51,6 @@ function Effect(props: Props) {
             ease: 'power3.inOut',
         }, "<");
 
-        // Animate firstName out
         tl.to('.firstName', {
             y: 100,
             delay: 0.4,
@@ -58,8 +65,8 @@ function Effect(props: Props) {
     return (
         <div className='h-screen w-screen bg-black flex justify-center items-center'>
             <div className='w-fit px-5 pt-8 overflow-hidden flex justify-center items-center gap-2'>
-                <h1 className='firstName text-xl text-white font-extrabold font-["Roboto"]'>Creating</h1>
-                <h1 className='lastName text-xl text-white font-extrabold font-["Roboto"]'>Wonders</h1>
+                <h1 className={`firstName text-xl text-white font-extrabold ${roboto.className}`}>Creating</h1>
+                <h1 className={`lastName text-xl text-white font-extrabold ${roboto.className}`}>Wonders</h1>
             </div>
         </div>
     );

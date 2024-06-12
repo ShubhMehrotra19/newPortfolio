@@ -1,6 +1,5 @@
 "use client";
 import React, { useRef } from "react";
-import "./navbar.css";
 import Image from "next/image";
 
 interface Props {}

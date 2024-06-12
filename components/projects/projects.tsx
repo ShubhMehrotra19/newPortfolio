@@ -1,9 +1,23 @@
 /* eslint-disable react/no-unescaped-entities */
 "use client";
 import React, { useRef, useState } from "react";
-import "./projects.css";
 import Image from "next/image";
 import Display from "./display";
+import { Anton, Open_Sans } from "next/font/google";
+
+export const anton = Anton({
+  weight: ["400"],
+  style: ["normal"],
+  subsets: ["latin-ext", "latin", "vietnamese"],
+  display: "swap",
+});
+
+export const openSans = Open_Sans({
+  weight: ["300", "800"],
+  style: ["normal"],
+  subsets: ["latin-ext", "latin", "vietnamese"],
+  display: "swap",
+});
 
 interface Props {}
 
@@ -13,7 +27,8 @@ function Projects(props: Props) {
       index: 1,
       imageLink: "/projects/shubhUI.png",
       projectName: "SHUBH.UI",
-      shortDes: "A COMPONENT LIBRARY CREATED WITH NEXT.JS, TAILWINDCSS AND GSAP",
+      shortDes:
+        "A COMPONENT LIBRARY CREATED WITH NEXT.JS, TAILWINDCSS AND GSAP",
       gitLink: "https://github.com/ShubhMehrotra19/Shubh.UI",
       deployedLink: "https://shubh-ui.vercel.app/",
     },
@@ -29,7 +44,8 @@ function Projects(props: Props) {
       index: 3,
       imageLink: "/projects/cuesource.png",
       projectName: "CUESOURCE",
-      shortDes: "AN ONLINE PLATFORM FOR DEVELOPERS TO TAKE UP OPEN SOURCED ISSUES AS FREELANCE",
+      shortDes:
+        "AN ONLINE PLATFORM FOR DEVELOPERS TO TAKE UP OPEN SOURCED ISSUES AS FREELANCE",
       gitLink: "https://github.com/CueSource-PE2/CueSource-WebApp",
       deployedLink: "https://cuesource.vercel.app/",
     },
@@ -59,7 +75,9 @@ function Projects(props: Props) {
     <section className="mb-32 flex flex-col justify-center items-center mx-14">
       <div className="w-full flex justify-between items-end mb-40">
         <div className="w-full text-left flex flex-col justify-start items-start">
-          <p className='text-[80px] font-["Anton"] leading-snug mb-12 w-full'>
+          <p
+            className={`text-[80px] ${anton.className} leading-snug mb-12 w-full`}
+          >
             DESIGNING DIGITAL <br /> PRODUCTS WITH EMPHASIS <br /> ON
             <span className="text-[#b7b7b7] mb-8"> VISUAL DESIGN.</span>
           </p>
@@ -67,7 +85,7 @@ function Projects(props: Props) {
             ref={talkRef}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
-            className='talking px-8 py-4 text-base rounded-full text-white bg-black hover:bg-[#B2D12E] cursor-pointer text-center font-["Open_Sans"] hover:scale-105 active:scale-95 transition-all duration-300 ease-in-out flex justify-center items-center gap-2'
+            className={`talking px-8 py-4 text-base rounded-full text-white bg-black hover:bg-[#B2D12E] cursor-pointer text-center ${openSans.className} hover:scale-105 active:scale-95 transition-all duration-300 ease-in-out flex justify-center items-center gap-2`}
           >
             LET'S TALK
             <Image
@@ -80,7 +98,7 @@ function Projects(props: Props) {
             />
           </div>
         </div>
-        <div className="text-left text-base font-normal font-['Open_Sans']">
+        <div className={`text-left text-base font-normal ${openSans.className}`}>
           AS A <span className="text-[#337225] font-bold">UI DESIGNER</span> AND
           A <span className="text-[#337225] font-bold">FRONTEND DEVELOPER</span>
           , MY PROJECTS REFLECT A MAJOR PART OF MY{" "}
@@ -94,7 +112,7 @@ function Projects(props: Props) {
         </div>
       </div>
       <div className="w-full flex justify-start my-12">
-        <h2 className="font-['Anton'] text-[60px] pb-1 border-b-[3px] border-black">
+        <h2 className={`${anton.className} text-[60px] pb-1 border-b-[3px] border-black`}>
           SELECTED WORKS
         </h2>
       </div>
