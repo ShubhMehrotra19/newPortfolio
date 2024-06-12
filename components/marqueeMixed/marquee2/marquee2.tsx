@@ -35,6 +35,31 @@ function Marquee2(props: Props) {
           &nbsp; UI DESIGNING &nbsp; # &nbsp; UX REPORT &nbsp; # &nbsp; FIGMA
           &nbsp; # &nbsp; LUNACY &nbsp; # &nbsp; CANVA &nbsp; # &nbsp; VISME
           &nbsp; # &nbsp;
+          UI DESIGNING &nbsp; # &nbsp; UX REPORT &nbsp; # &nbsp; FIGMA &nbsp; #
+          &nbsp; LUNACY &nbsp; # &nbsp; CANVA &nbsp; # &nbsp; VISME &nbsp; #
+          &nbsp; UI DESIGNING &nbsp; # &nbsp; UX REPORT &nbsp; # &nbsp; FIGMA
+          &nbsp; # &nbsp; LUNACY &nbsp; # &nbsp; CANVA &nbsp; # &nbsp; VISME
+          &nbsp; # &nbsp;
+          UI DESIGNING &nbsp; # &nbsp; UX REPORT &nbsp; # &nbsp; FIGMA &nbsp; #
+          &nbsp; LUNACY &nbsp; # &nbsp; CANVA &nbsp; # &nbsp; VISME &nbsp; #
+          &nbsp; UI DESIGNING &nbsp; # &nbsp; UX REPORT &nbsp; # &nbsp; FIGMA
+          &nbsp; # &nbsp; LUNACY &nbsp; # &nbsp; CANVA &nbsp; # &nbsp; VISME
+          &nbsp; # &nbsp;
+          UI DESIGNING &nbsp; # &nbsp; UX REPORT &nbsp; # &nbsp; FIGMA &nbsp; #
+          &nbsp; LUNACY &nbsp; # &nbsp; CANVA &nbsp; # &nbsp; VISME &nbsp; #
+          &nbsp; UI DESIGNING &nbsp; # &nbsp; UX REPORT &nbsp; # &nbsp; FIGMA
+          &nbsp; # &nbsp; LUNACY &nbsp; # &nbsp; CANVA &nbsp; # &nbsp; VISME
+          &nbsp; # &nbsp;
+          UI DESIGNING &nbsp; # &nbsp; UX REPORT &nbsp; # &nbsp; FIGMA &nbsp; #
+          &nbsp; LUNACY &nbsp; # &nbsp; CANVA &nbsp; # &nbsp; VISME &nbsp; #
+          &nbsp; UI DESIGNING &nbsp; # &nbsp; UX REPORT &nbsp; # &nbsp; FIGMA
+          &nbsp; # &nbsp; LUNACY &nbsp; # &nbsp; CANVA &nbsp; # &nbsp; VISME
+          &nbsp; # &nbsp;
+          UI DESIGNING &nbsp; # &nbsp; UX REPORT &nbsp; # &nbsp; FIGMA &nbsp; #
+          &nbsp; LUNACY &nbsp; # &nbsp; CANVA &nbsp; # &nbsp; VISME &nbsp; #
+          &nbsp; UI DESIGNING &nbsp; # &nbsp; UX REPORT &nbsp; # &nbsp; FIGMA
+          &nbsp; # &nbsp; LUNACY &nbsp; # &nbsp; CANVA &nbsp; # &nbsp; VISME
+          &nbsp; # &nbsp;
         </span>
       </div>
     </section>
