@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useRef } from "react";
 import "./navbar.css";
 import Image from "next/image";
@@ -13,9 +13,19 @@ function Navbar(props: Props) {
       <Image src="/icons/logoIcon.png" width={200} height={120} alt="" />
       <div
         ref={menuRef}
-        className="menu cursor-pointer flex justify-center items-center gap-6 px-3">
+        className="menu cursor-pointer flex justify-center items-center gap-6 px-3"
+      >
         <p className="font-light text-lg">menu</p>
-        <Image className="transition-all duration-300 ease-in-out delay-75" onClick={() => {setIsClicked(!isClicked)}} src={`${isClicked ? `/icons/menu.png` : `/icons/close.png` }`} width={30} height={30} alt="" />
+        <Image
+          className="transition-all duration-300 ease-in-out delay-75"
+          onClick={() => {
+            setIsClicked(!isClicked);
+          }}
+          src={`${isClicked ? `/icons/menu.png` : `/icons/close.png`}`}
+          width={30}
+          height={30}
+          alt=""
+        />
       </div>
     </nav>
   );

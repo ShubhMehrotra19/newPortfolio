@@ -15,10 +15,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body style={{
-        scrollbarWidth: "none"
-      }} className={inter.className}>{children}</body>
+    <html lang="en" style={{
+      scrollbarWidth: "none",
+    }}>
+      <body className={inter.className}>{children}</body>
     </html>
   );
 }
