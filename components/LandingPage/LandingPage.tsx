@@ -8,7 +8,7 @@ import Welcome from "../effect/Effect";
 import Hero from "../hero/hero";
 import VideoPlaying from "../video/VideoPlaying";
 import Description from "../description/description";
-import Marquee from "../marquee/marquee";
+import MarqueeMix from "../marqueeMixed/marqueeMix";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -155,7 +155,7 @@ function LandingPage(props: any) {
         <Hero />
         <VideoPlaying />
         <Description />
-        <Marquee />
+        <MarqueeMix />
         <div
           ref={cursorRef}
           style={{
