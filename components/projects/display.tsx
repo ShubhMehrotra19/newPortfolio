@@ -1,7 +1,21 @@
 import Image from 'next/image'
 import React, { useRef } from 'react'
-import './projects.css'
 import Link from 'next/link'
+import { Anton, Open_Sans } from 'next/font/google';
+
+export const anton = Anton({
+  weight: ['400'],
+  style: ['normal'],
+  subsets: ['latin-ext', 'latin', 'vietnamese'],
+  display: 'swap',
+}) 
+
+export const openSans = Open_Sans({
+  weight: ['300', '800'],
+  style: ['normal'],
+  subsets: ['latin-ext', 'latin', 'vietnamese'],
+  display: 'swap',
+})
 
 function Display({ imageLink, projectName, shortDes, gitLink, deployedLink }: any) {
     const projectRef = useRef<HTMLImageElement>(null);
@@ -14,8 +28,8 @@ function Display({ imageLink, projectName, shortDes, gitLink, deployedLink }: an
             </div>
             <div className='flex justify-between items-center w-full'>
                 <div className='flex flex-col items-start justify-start gap-2'>
-                    <p className='font-semibold font-["Anton"] text-4xl'>{projectName}</p>
-                    <p className='font-light font-["Open_Sans"] text-base'>{shortDes}</p>
+                    <p className={`font-semibold ${anton.className} text-4xl`}>{projectName}</p>
+                    <p className={`font-light ${openSans.className} text-base`}>{shortDes}</p>
                 </div>
                 <Link href={gitLink} target='_blank'><Image src='/icons/arrow_link.png' ref={linkedRef} className='linked cursor-pointer hover:rotate-90 hover:scale-[102%] transition duration-500 delay-75 ease-in-out' alt='arrow' height={100} width={100} /></Link>
             </div>
