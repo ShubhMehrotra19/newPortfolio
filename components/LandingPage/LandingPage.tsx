@@ -9,6 +9,7 @@ import Hero from "../hero/hero";
 import VideoPlaying from "../video/VideoPlaying";
 import Description from "../description/description";
 import MarqueeMix from "../marqueeMixed/marqueeMix";
+import Projects from "../projects/projects";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -17,6 +18,9 @@ function LandingPage(props: any) {
   const [isMenu, setIsMenu] = useState(false); 
   const [isVideo, setIsVideo] = useState(false);
   const [isButton, setIsButton] = useState(false);
+  const [isTalking, setIsTalking] = useState(false);
+  const [isProject, setIsProject] = useState(false);
+  const [isLinked, setIsLinked] = useState(false);
 
   const cursorRef = useRef<HTMLDivElement>(null);
 
@@ -75,11 +79,16 @@ function LandingPage(props: any) {
     const menu = document.querySelector(".menu");
     const videoElement = document.querySelectorAll(".video");
     const btnHovering = document.querySelectorAll(".viewBtn");
-
+    const talkHovering = document.querySelectorAll(".talking");
+    const linkedHovering = document.querySelectorAll(".linked");
+    const projectHovering = document.querySelectorAll(".projectImage");
   
     if (!menu) return;
     if (!videoElement.length) return;
     if (!btnHovering) return;
+    if (!talkHovering) return;
+    if (!linkedHovering) return;
+    if (!projectHovering) return;
   
     const handleMenuEnter = () => {
       setIsMenu(true);
@@ -110,6 +119,36 @@ function LandingPage(props: any) {
       setIsButton(false);
       gsap.to(cursor, { scale: 1 });
     };
+
+    const handleTalkEnter = () => {
+      setIsTalking(true);
+      gsap.to(cursor, { scale: 6 });
+    }
+
+    const handleTalkLeave = () => {
+      setIsTalking(false);
+      gsap.to(cursor, { scale: 1 });
+    }
+
+    const handleLinkedEnter = () => {
+      setIsLinked(true);
+      gsap.to(cursor, { scale: 6 });
+    }
+
+    const handleLinkedLeave = () => {
+      setIsLinked(false);
+      gsap.to(cursor, { scale: 1 });
+    }
+
+    const handleProjectEnter = () => {
+      setIsProject(true);
+      gsap.to(cursor, { scale: 6 });
+    }
+
+    const handleProjectLeave = () => {
+      setIsProject(false);
+      gsap.to(cursor, { scale: 1 });
+    }
   
     menu.addEventListener("mouseenter", handleMenuEnter);
     menu.addEventListener("mouseleave", handleMenuLeave);
@@ -123,6 +162,21 @@ function LandingPage(props: any) {
       element.addEventListener("mouseenter", handleButtonEnter);
       element.addEventListener("mouseleave", handleButtonLeave);
     });
+
+    talkHovering.forEach((element) => {
+      element.addEventListener("mouseenter", handleTalkEnter);
+      element.addEventListener("mouseleave", handleTalkLeave);
+    });
+
+    linkedHovering.forEach((element) => {
+      element.addEventListener("mouseenter", handleLinkedEnter);
+      element.addEventListener("mouseleave", handleLinkedLeave);
+    });
+
+    projectHovering.forEach((element) => {
+      element.addEventListener("mouseenter", handleProjectEnter);
+      element.addEventListener("mouseleave", handleProjectLeave);
+    });
   
     return () => {
       menu.removeEventListener("mouseenter", handleMenuEnter);
@@ -131,6 +185,26 @@ function LandingPage(props: any) {
       videoElement.forEach((element) => {
         element.removeEventListener("mouseenter", handleVideoEnter);
         element.removeEventListener("mouseleave", handleVideoLeave);
+      });
+
+      btnHovering.forEach((element) => {
+        element.removeEventListener("mouseenter", handleButtonEnter);
+        element.removeEventListener("mouseleave", handleButtonLeave);
+      });
+
+      talkHovering.forEach((element) => {
+        element.removeEventListener("mouseenter", handleTalkEnter);
+        element.removeEventListener("mouseleave", handleTalkLeave);
+      });
+
+      linkedHovering.forEach((element) => {
+        element.removeEventListener("mouseenter", handleLinkedEnter);
+        element.removeEventListener("mouseleave", handleLinkedLeave);
+      });
+
+      projectHovering.forEach((element) => {
+        element.removeEventListener("mouseenter", handleProjectEnter);
+        element.removeEventListener("mouseleave", handleProjectLeave);
       });
     };
   }, []);
@@ -156,19 +230,26 @@ function LandingPage(props: any) {
         <VideoPlaying />
         <Description />
         <MarqueeMix />
+        <Projects />
         <div
           ref={cursorRef}
           style={{
-            backdropFilter: isButton ? `blur(0.5px)` : `blur(0px)`,
+            backdropFilter: isButton || isTalking ? `blur(0.5px)` : `blur(0px)`,
           }}
           className={`cursorCustom h-3 w-3 fixed top-0 left-0 pointer-events-none z-[500] rounded-full text-white font-light overflow-hidden flex justify-center items-center text-center ${
             isMenu ? `text-[2.5px] bg-black` : `text-[0px] bg-black`
           } ${isVideo ? `text-[5px] bg-white` : `text-[0px] bg-black`}
-          ${isButton ? `bg-transparent text-[5px]` : `text-[0px] bg-black`}`}
+          ${isButton ? `bg-transparent text-[5px]` : `text-[0px] bg-black`}
+          ${isTalking ? `bg-transparent text-[5px]` : `text-[0px] bg-black`}
+          ${isLinked ? `bg-white text-[2.5px] text-black font-medium` : `text-[0px] bg-black`}
+          ${isProject ? `bg-white/35 text-[5px]` : `text-[0px] bg-black`}`}
         >
           {`${isMenu ? "click me" : ""}`}
           {`${isVideo ? "📽️" : ""}`}
           {`${isButton ? "🤙🏽" : ""}`}
+          {`${isTalking ? "📞" : ""}`}
+          {`${isLinked ? "click me" : ""}`}
+          {`${isProject ? "📹" : ""}`}
         </div>
       </div>
     </>

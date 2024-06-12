@@ -8,7 +8,7 @@ function MarqueeMix(props: Props) {
     const {} = props
 
     return (
-        <section className='mb-32 relative w-full'>
+        <section className='mb-96 relative w-full'>
             <div className='relative z-0'>
                 <Marquee />
             </div>
