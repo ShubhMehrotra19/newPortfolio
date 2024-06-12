@@ -6,7 +6,9 @@ import Lenis from "@studio-freight/lenis";
 import Navbar from "../navbar/navbar";
 import Welcome from "../effect/Effect";
 import Hero from "../hero/hero";
+import VideoPlaying from "../video/VideoPlaying";
 import Description from "../description/description";
+import Marquee from "../marquee/marquee";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -14,6 +16,7 @@ function LandingPage(props: any) {
   const [isWelcomeAnimationComplete, setIsWelcomeAnimationComplete] = useState(false);
   const [isMenu, setIsMenu] = useState(false); 
   const [isVideo, setIsVideo] = useState(false);
+  const [isButton, setIsButton] = useState(false);
 
   const cursorRef = useRef<HTMLDivElement>(null);
 
@@ -71,10 +74,12 @@ function LandingPage(props: any) {
   
     const menu = document.querySelector(".menu");
     const videoElement = document.querySelectorAll(".video");
+    const btnHovering = document.querySelectorAll(".viewBtn");
 
   
     if (!menu) return;
     if (!videoElement.length) return;
+    if (!btnHovering) return;
   
     const handleMenuEnter = () => {
       setIsMenu(true);
@@ -95,6 +100,16 @@ function LandingPage(props: any) {
       setIsVideo(false);
       gsap.to(cursor, { scale: 1 });
     };
+
+    const handleButtonEnter = () => {
+      setIsButton(true);
+      gsap.to(cursor, { scale: 6 });
+    };
+
+    const handleButtonLeave = () => {
+      setIsButton(false);
+      gsap.to(cursor, { scale: 1 });
+    };
   
     menu.addEventListener("mouseenter", handleMenuEnter);
     menu.addEventListener("mouseleave", handleMenuLeave);
@@ -102,6 +117,11 @@ function LandingPage(props: any) {
     videoElement.forEach((element) => {
       element.addEventListener("mouseenter", handleVideoEnter);
       element.addEventListener("mouseleave", handleVideoLeave);
+    });
+
+    btnHovering.forEach((element) => {
+      element.addEventListener("mouseenter", handleButtonEnter);
+      element.addEventListener("mouseleave", handleButtonLeave);
     });
   
     return () => {
@@ -133,15 +153,22 @@ function LandingPage(props: any) {
       >
         <Navbar />
         <Hero />
+        <VideoPlaying />
         <Description />
+        <Marquee />
         <div
           ref={cursorRef}
+          style={{
+            backdropFilter: isButton ? `blur(0.5px)` : `blur(0px)`,
+          }}
           className={`cursorCustom h-3 w-3 fixed top-0 left-0 pointer-events-none z-[500] rounded-full text-white font-light overflow-hidden flex justify-center items-center text-center ${
             isMenu ? `text-[2.5px] bg-black` : `text-[0px] bg-black`
-          } ${isVideo ? `text-[5px] bg-white` : `text-[0px] bg-black`}`}
+          } ${isVideo ? `text-[5px] bg-white` : `text-[0px] bg-black`}
+          ${isButton ? `bg-transparent text-[5px]` : `text-[0px] bg-black`}`}
         >
           {`${isMenu ? "click me" : ""}`}
           {`${isVideo ? "📽️" : ""}`}
+          {`${isButton ? "🤙🏽" : ""}`}
         </div>
       </div>
     </>

@@ -106,7 +106,7 @@ function Hero(props: Props) {
         </div>
       </div>
       <div className="flex flex-col w-fit">
-        <p className="subHeading font-light text-2xl mb-2 pr-5">
+        <p className="subHeading font-light font-['Open_Sans'] text-2xl mb-2 pr-5">
           CREATING DESIGNS <br /> THAT RESONATE.
         </p>
         <div className="base h-[2px] bg-black"></div>
