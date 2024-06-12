@@ -39,6 +39,36 @@ function Marquee(props: Props) {
           TAILWIND &nbsp; # &nbsp; REACT.JS &nbsp; # &nbsp; GSAP &nbsp; # &nbsp;
           TYPESCRIPT &nbsp; # &nbsp; FRAMER-MOTION &nbsp; # &nbsp; LENIS-SCROLL
           &nbsp; # &nbsp;
+          NEXT.JS &nbsp; # &nbsp; TAILWIND &nbsp; # &nbsp; REACT.JS &nbsp; #
+          &nbsp; GSAP &nbsp; # &nbsp; TYPESCRIPT &nbsp; # &nbsp; FRAMER-MOTION
+          &nbsp; # &nbsp; LENIS-SCROLL &nbsp; # &nbsp; NEXT.JS &nbsp; # &nbsp;
+          TAILWIND &nbsp; # &nbsp; REACT.JS &nbsp; # &nbsp; GSAP &nbsp; # &nbsp;
+          TYPESCRIPT &nbsp; # &nbsp; FRAMER-MOTION &nbsp; # &nbsp; LENIS-SCROLL
+          &nbsp; # &nbsp;
+          NEXT.JS &nbsp; # &nbsp; TAILWIND &nbsp; # &nbsp; REACT.JS &nbsp; #
+          &nbsp; GSAP &nbsp; # &nbsp; TYPESCRIPT &nbsp; # &nbsp; FRAMER-MOTION
+          &nbsp; # &nbsp; LENIS-SCROLL &nbsp; # &nbsp; NEXT.JS &nbsp; # &nbsp;
+          TAILWIND &nbsp; # &nbsp; REACT.JS &nbsp; # &nbsp; GSAP &nbsp; # &nbsp;
+          TYPESCRIPT &nbsp; # &nbsp; FRAMER-MOTION &nbsp; # &nbsp; LENIS-SCROLL
+          &nbsp; # &nbsp;
+          NEXT.JS &nbsp; # &nbsp; TAILWIND &nbsp; # &nbsp; REACT.JS &nbsp; #
+          &nbsp; GSAP &nbsp; # &nbsp; TYPESCRIPT &nbsp; # &nbsp; FRAMER-MOTION
+          &nbsp; # &nbsp; LENIS-SCROLL &nbsp; # &nbsp; NEXT.JS &nbsp; # &nbsp;
+          TAILWIND &nbsp; # &nbsp; REACT.JS &nbsp; # &nbsp; GSAP &nbsp; # &nbsp;
+          TYPESCRIPT &nbsp; # &nbsp; FRAMER-MOTION &nbsp; # &nbsp; LENIS-SCROLL
+          &nbsp; # &nbsp;
+          NEXT.JS &nbsp; # &nbsp; TAILWIND &nbsp; # &nbsp; REACT.JS &nbsp; #
+          &nbsp; GSAP &nbsp; # &nbsp; TYPESCRIPT &nbsp; # &nbsp; FRAMER-MOTION
+          &nbsp; # &nbsp; LENIS-SCROLL &nbsp; # &nbsp; NEXT.JS &nbsp; # &nbsp;
+          TAILWIND &nbsp; # &nbsp; REACT.JS &nbsp; # &nbsp; GSAP &nbsp; # &nbsp;
+          TYPESCRIPT &nbsp; # &nbsp; FRAMER-MOTION &nbsp; # &nbsp; LENIS-SCROLL
+          &nbsp; # &nbsp;
+          NEXT.JS &nbsp; # &nbsp; TAILWIND &nbsp; # &nbsp; REACT.JS &nbsp; #
+          &nbsp; GSAP &nbsp; # &nbsp; TYPESCRIPT &nbsp; # &nbsp; FRAMER-MOTION
+          &nbsp; # &nbsp; LENIS-SCROLL &nbsp; # &nbsp; NEXT.JS &nbsp; # &nbsp;
+          TAILWIND &nbsp; # &nbsp; REACT.JS &nbsp; # &nbsp; GSAP &nbsp; # &nbsp;
+          TYPESCRIPT &nbsp; # &nbsp; FRAMER-MOTION &nbsp; # &nbsp; LENIS-SCROLL
+          &nbsp; # &nbsp;
         </span>
       </div>
     </section>
