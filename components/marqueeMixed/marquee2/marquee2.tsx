@@ -21,7 +21,7 @@ interface Props {}
 
 function Marquee2(props: Props) {
   const {} = props;
-  const textWidth = 4800; 
+  const textWidth = 8000; 
 
   return (
     <section className="w-[1800px] h-[160px] bg-[#337225] flex justify-center items-center -ml-3 -rotate-[3deg] overflow-hidden">

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { url } from "inspector";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,7 +18,8 @@ export default function RootLayout({
   return (
     <html lang="en" style={{
       scrollbarWidth: "none",
-      overflowX: "hidden"
+      overflowX: "hidden",
+      cursor: 'url("/icons/cursor.png"), auto',
     }}>
       <body className={inter.className}>{children}</body>
     </html>
