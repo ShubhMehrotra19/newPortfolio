@@ -23,8 +23,9 @@ function Contacts(props: Props) {
     const {} = props
 
     const handleMail = () => {
-        window.open('mailto: hishubh09@gmail.com')
-    }
+      const mailTo = 'https://mail.google.com/mail/?view=cm&fs=1&to=hishubh09@gmail.com';
+      window.open(mailTo, '_blank');
+    };
 
     const mailRef = useRef<HTMLSpanElement>(null);
 

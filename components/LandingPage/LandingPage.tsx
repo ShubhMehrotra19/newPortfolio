@@ -16,8 +16,9 @@ import Footer from "../footer/footer";
 gsap.registerPlugin(ScrollTrigger);
 
 function LandingPage(props: any) {
-  const [isWelcomeAnimationComplete, setIsWelcomeAnimationComplete] = useState(false);
-  const [isMenu, setIsMenu] = useState(false); 
+  const [isWelcomeAnimationComplete, setIsWelcomeAnimationComplete] =
+    useState(false);
+  const [isMenu, setIsMenu] = useState(false);
   const [isVideo, setIsVideo] = useState(false);
   const [isButton, setIsButton] = useState(false);
   const [isTalking, setIsTalking] = useState(false);
@@ -77,10 +78,11 @@ function LandingPage(props: any) {
   }, []);
 
   useEffect(() => {
+
     const cursor = cursorRef.current;
-  
+
     if (!cursor) return;
-  
+
     const menu = document.querySelector(".menu");
     const videoElement = document.querySelectorAll(".video");
     const btnHovering = document.querySelectorAll(".viewBtn");
@@ -100,22 +102,22 @@ function LandingPage(props: any) {
     if (!mailHovering) return;
     if (!footerHovering) return;
     if (!thanking) return;
-  
+
     const handleMenuEnter = () => {
       setIsMenu(true);
       gsap.to(cursor, { scale: 6 });
     };
-  
+
     const handleMenuLeave = () => {
       setIsMenu(false);
       gsap.to(cursor, { scale: 1 });
     };
-  
+
     const handleVideoEnter = () => {
       setIsVideo(true);
       gsap.to(cursor, { scale: 6 });
     };
-  
+
     const handleVideoLeave = () => {
       setIsVideo(false);
       gsap.to(cursor, { scale: 1 });
@@ -134,66 +136,66 @@ function LandingPage(props: any) {
     const handleTalkEnter = () => {
       setIsTalking(true);
       gsap.to(cursor, { scale: 6 });
-    }
+    };
 
     const handleTalkLeave = () => {
       setIsTalking(false);
       gsap.to(cursor, { scale: 1 });
-    }
+    };
 
     const handleLinkedEnter = () => {
       setIsLinked(true);
       gsap.to(cursor, { scale: 6 });
-    }
+    };
 
     const handleLinkedLeave = () => {
       setIsLinked(false);
       gsap.to(cursor, { scale: 1 });
-    }
+    };
 
     const handleProjectEnter = () => {
       setIsProject(true);
       gsap.to(cursor, { scale: 6 });
-    }
+    };
 
     const handleProjectLeave = () => {
       setIsProject(false);
       gsap.to(cursor, { scale: 1 });
-    }
+    };
 
     const handleMailEnter = () => {
       setIsMailing(true);
       gsap.to(cursor, { scale: 6 });
-    }
+    };
 
     const handleMailLeave = () => {
       setIsMailing(false);
       gsap.to(cursor, { scale: 1 });
-    }
+    };
 
     const handleFooterEnter = () => {
       setIsFooter(true);
       gsap.to(cursor, { scale: 1 });
-    }
+    };
 
     const handleFooterLeave = () => {
       setIsFooter(false);
       gsap.to(cursor, { scale: 1 });
-    }
+    };
 
     const handleThankingEnter = () => {
       setIsThanking(true);
       gsap.to(cursor, { scale: 6 });
-    }
+    };
 
     const handleThankingLeave = () => {
       setIsThanking(false);
       gsap.to(cursor, { scale: 1 });
-    }
-  
+    };
+
     menu.addEventListener("mouseenter", handleMenuEnter);
     menu.addEventListener("mouseleave", handleMenuLeave);
-  
+
     videoElement.forEach((element) => {
       element.addEventListener("mouseenter", handleVideoEnter);
       element.addEventListener("mouseleave", handleVideoLeave);
@@ -233,11 +235,11 @@ function LandingPage(props: any) {
       element.addEventListener("mouseenter", handleThankingEnter);
       element.addEventListener("mouseleave", handleThankingLeave);
     });
-  
+
     return () => {
       menu.removeEventListener("mouseenter", handleMenuEnter);
       menu.removeEventListener("mouseleave", handleMenuLeave);
-  
+
       videoElement.forEach((element) => {
         element.removeEventListener("mouseenter", handleVideoEnter);
         element.removeEventListener("mouseleave", handleVideoLeave);
@@ -296,18 +298,25 @@ function LandingPage(props: any) {
           display: isWelcomeAnimationComplete ? "block" : "none",
         }}
       >
-        <Navbar />
-        <Hero />
-        <VideoPlaying />
-        <Description />
-        <MarqueeMix />
-        <Projects />
-        <Contacts />
-        <Footer />
+        <div className="relative w-full z-0">
+          <div className="fixed z-10 w-full top-0 backdrop-blur-md bg-white/30">
+            <Navbar />
+          </div>
+          <Hero />
+          <VideoPlaying />
+          <Description />
+          <MarqueeMix />
+          <Projects />
+          <Contacts />
+          <Footer />
+        </div>
         <div
           ref={cursorRef}
           style={{
-            backdropFilter: isButton || isTalking || isMailing || isTalking ? `blur(0.5px)` : `blur(0px)`,
+            backdropFilter:
+              isButton || isTalking || isMailing || isTalking
+                ? `blur(0.5px)`
+                : `blur(0px)`,
             color: isLinked ? `#000` : `#fff`,
           }}
           className={`cursorCustom h-3 w-3 fixed top-0 left-0 pointer-events-none z-[500] rounded-full text-white font-light overflow-hidden flex justify-center items-center text-center ${
@@ -315,11 +324,15 @@ function LandingPage(props: any) {
           } ${isVideo ? `text-[5px] bg-white` : `text-[0px] bg-black`}
           ${isButton ? `bg-transparent text-[5px]` : `text-[0px] bg-black`}
           ${isTalking ? `bg-transparent text-[5px]` : `text-[0px] bg-black`}
-          ${isLinked ? `bg-white text-[2.5px] font-medium` : `text-[0px] bg-black`}
+          ${
+            isLinked
+              ? `bg-white text-[2.5px] font-medium`
+              : `text-[0px] bg-black`
+          }
           ${isProject ? `bg-white/35 text-[5px]` : `text-[0px] bg-black`}
           ${isMailing ? `bg-transparent text-[5px]` : `text-[0px] bg-black`}
           ${isFooter ? `bg-white` : `bg-black`}
-          ${isThanking ? `bg-[#b2de21] text-[5px]` : `text-[0px] bg-black`}`}
+          ${isThanking ? `bg-[#B2DE21] text-[5px]` : `bg-black`}`}
         >
           {`${isMenu ? "click me" : ""}`}
           {`${isVideo ? "📽️" : ""}`}

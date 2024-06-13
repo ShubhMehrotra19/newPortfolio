@@ -108,7 +108,7 @@ function Hero(props: Props) {
   }, []);
 
   return (
-    <section className="flex flex-col mt-24 mb-20 mx-14">
+    <section className="flex flex-col mt-52 mb-20 mx-14">
       <div className="mb-16 flex flex-col">
         <div className={`heading1 text-[140px] leading-[140px] text-[#121212] ${anton.className} overflow-hidden`}>
           CREATIVE DESIGN AND
