@@ -292,15 +292,15 @@ function LandingPage(props: any) {
       </div>
       <div
         id="content"
-        className=" select-none"
+        className="select-none"
         style={{
           opacity: isWelcomeAnimationComplete ? 1 : 0,
           display: isWelcomeAnimationComplete ? "block" : "none",
         }}
       >
         <div className="relative w-full z-0">
-          <div className="fixed z-10 w-full top-0 backdrop-blur-md bg-white/30">
-            <Navbar />
+          <div className="fixed z-10 w-full top-0 backdrop-blur-md bg-transparent">
+          <Navbar />
           </div>
           <Hero />
           <VideoPlaying />
@@ -339,7 +339,7 @@ function LandingPage(props: any) {
           {`${isButton ? "🤙🏽" : ""}`}
           {`${isTalking ? "📞" : ""}`}
           {`${isLinked ? "click me" : ""}`}
-          {`${isProject ? "📹" : ""}`}
+          {`${isProject ? "👀" : ""}`}
           {`${isMailing ? "✒️" : ""}`}
           {`${isThanking ? "🤍" : ""}`}
         </div>
