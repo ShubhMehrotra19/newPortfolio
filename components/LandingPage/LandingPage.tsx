@@ -10,6 +10,8 @@ import VideoPlaying from "../video/VideoPlaying";
 import Description from "../description/description";
 import MarqueeMix from "../marqueeMixed/marqueeMix";
 import Projects from "../projects/projects";
+import Contacts from "../contacts/contacts";
+import Footer from "../footer/footer";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -21,6 +23,9 @@ function LandingPage(props: any) {
   const [isTalking, setIsTalking] = useState(false);
   const [isProject, setIsProject] = useState(false);
   const [isLinked, setIsLinked] = useState(false);
+  const [isMailing, setIsMailing] = useState(false);
+  const [isFooter, setIsFooter] = useState(false);
+  const [isThanking, setIsThanking] = useState(false);
 
   const cursorRef = useRef<HTMLDivElement>(null);
 
@@ -82,13 +87,19 @@ function LandingPage(props: any) {
     const talkHovering = document.querySelectorAll(".talking");
     const linkedHovering = document.querySelectorAll(".linked");
     const projectHovering = document.querySelectorAll(".projectImage");
-  
+    const mailHovering = document.querySelectorAll(".mailing");
+    const footerHovering = document.querySelectorAll(".footer");
+    const thanking = document.querySelectorAll(".thanku");
+
     if (!menu) return;
     if (!videoElement.length) return;
     if (!btnHovering) return;
     if (!talkHovering) return;
     if (!linkedHovering) return;
     if (!projectHovering) return;
+    if (!mailHovering) return;
+    if (!footerHovering) return;
+    if (!thanking) return;
   
     const handleMenuEnter = () => {
       setIsMenu(true);
@@ -149,6 +160,36 @@ function LandingPage(props: any) {
       setIsProject(false);
       gsap.to(cursor, { scale: 1 });
     }
+
+    const handleMailEnter = () => {
+      setIsMailing(true);
+      gsap.to(cursor, { scale: 6 });
+    }
+
+    const handleMailLeave = () => {
+      setIsMailing(false);
+      gsap.to(cursor, { scale: 1 });
+    }
+
+    const handleFooterEnter = () => {
+      setIsFooter(true);
+      gsap.to(cursor, { scale: 1 });
+    }
+
+    const handleFooterLeave = () => {
+      setIsFooter(false);
+      gsap.to(cursor, { scale: 1 });
+    }
+
+    const handleThankingEnter = () => {
+      setIsThanking(true);
+      gsap.to(cursor, { scale: 6 });
+    }
+
+    const handleThankingLeave = () => {
+      setIsThanking(false);
+      gsap.to(cursor, { scale: 1 });
+    }
   
     menu.addEventListener("mouseenter", handleMenuEnter);
     menu.addEventListener("mouseleave", handleMenuLeave);
@@ -176,6 +217,21 @@ function LandingPage(props: any) {
     projectHovering.forEach((element) => {
       element.addEventListener("mouseenter", handleProjectEnter);
       element.addEventListener("mouseleave", handleProjectLeave);
+    });
+
+    mailHovering.forEach((element) => {
+      element.addEventListener("mouseenter", handleMailEnter);
+      element.addEventListener("mouseleave", handleMailLeave);
+    });
+
+    footerHovering.forEach((element) => {
+      element.addEventListener("mouseenter", handleFooterEnter);
+      element.addEventListener("mouseleave", handleFooterLeave);
+    });
+
+    thanking.forEach((element) => {
+      element.addEventListener("mouseenter", handleThankingEnter);
+      element.addEventListener("mouseleave", handleThankingLeave);
     });
   
     return () => {
@@ -206,6 +262,21 @@ function LandingPage(props: any) {
         element.removeEventListener("mouseenter", handleProjectEnter);
         element.removeEventListener("mouseleave", handleProjectLeave);
       });
+
+      mailHovering.forEach((element) => {
+        element.removeEventListener("mouseenter", handleMailEnter);
+        element.removeEventListener("mouseleave", handleMailLeave);
+      });
+
+      footerHovering.forEach((element) => {
+        element.removeEventListener("mouseenter", handleFooterEnter);
+        element.removeEventListener("mouseleave", handleFooterLeave);
+      });
+
+      thanking.forEach((element) => {
+        element.removeEventListener("mouseenter", handleThankingEnter);
+        element.removeEventListener("mouseleave", handleThankingLeave);
+      });
     };
   }, []);
 
@@ -231,10 +302,12 @@ function LandingPage(props: any) {
         <Description />
         <MarqueeMix />
         <Projects />
+        <Contacts />
+        <Footer />
         <div
           ref={cursorRef}
           style={{
-            backdropFilter: isButton || isTalking ? `blur(0.5px)` : `blur(0px)`,
+            backdropFilter: isButton || isTalking || isMailing || isTalking ? `blur(0.5px)` : `blur(0px)`,
             color: isLinked ? `#000` : `#fff`,
           }}
           className={`cursorCustom h-3 w-3 fixed top-0 left-0 pointer-events-none z-[500] rounded-full text-white font-light overflow-hidden flex justify-center items-center text-center ${
@@ -243,7 +316,10 @@ function LandingPage(props: any) {
           ${isButton ? `bg-transparent text-[5px]` : `text-[0px] bg-black`}
           ${isTalking ? `bg-transparent text-[5px]` : `text-[0px] bg-black`}
           ${isLinked ? `bg-white text-[2.5px] font-medium` : `text-[0px] bg-black`}
-          ${isProject ? `bg-white/35 text-[5px]` : `text-[0px] bg-black`}`}
+          ${isProject ? `bg-white/35 text-[5px]` : `text-[0px] bg-black`}
+          ${isMailing ? `bg-transparent text-[5px]` : `text-[0px] bg-black`}
+          ${isFooter ? `bg-white` : `bg-black`}
+          ${isThanking ? `bg-[#b2de21] text-[5px]` : `text-[0px] bg-black`}`}
         >
           {`${isMenu ? "click me" : ""}`}
           {`${isVideo ? "📽️" : ""}`}
@@ -251,6 +327,8 @@ function LandingPage(props: any) {
           {`${isTalking ? "📞" : ""}`}
           {`${isLinked ? "click me" : ""}`}
           {`${isProject ? "📹" : ""}`}
+          {`${isMailing ? "✒️" : ""}`}
+          {`${isThanking ? "🤍" : ""}`}
         </div>
       </div>
     </>
