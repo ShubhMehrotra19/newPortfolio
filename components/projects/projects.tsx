@@ -19,7 +19,9 @@ export const openSans = Open_Sans({
   display: "swap",
 });
 
-interface Props {}
+interface Props {
+  workRef: React.RefObject<HTMLElement>;
+}
 
 function Projects(props: Props) {
   const projects = [
@@ -59,7 +61,7 @@ function Projects(props: Props) {
     },
   ];
 
-  const {} = props;
+  const { workRef } = props;
   const [isHovering, setIsHovering] = useState(false);
   const talkRef = useRef<HTMLDivElement>(null);
 
@@ -72,7 +74,7 @@ function Projects(props: Props) {
   }
 
   return (
-    <section className="mb-20 flex flex-col justify-center items-center mx-14">
+    <section ref={workRef} className="mb-20 flex flex-col justify-center items-center mx-14">
       <div className="w-full flex justify-between items-end mb-40">
         <div className="w-full text-left flex flex-col justify-start items-start">
           <p
