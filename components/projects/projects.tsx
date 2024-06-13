@@ -101,16 +101,16 @@ function Projects(props: Props) {
           </div>
         </div>
         <div className={`text-left text-base font-normal ${openSans.className}`}>
-          AS A <span className="text-[#337225] font-bold">UI DESIGNER</span> AND
-          A <span className="text-[#337225] font-bold">FRONTEND DEVELOPER</span>
+          AS A <span className="font-bold">WEB DEVELOPER</span> AND
+          A <span className="font-bold">UI DESIGNER</span>
           , MY PROJECTS REFLECT A MAJOR PART OF MY{" "}
-          <span className="text-[#337225] font-bold">
+          <span className="font-bold">
             CREATIVE AND DESIGN SKILLS.
           </span>{" "}
           <br />I WORK IN A{" "}
-          <span className="text-[#337225] font-bold">SYSTEMATIC</span> PROCEDURE
-          TO DELIVER PRODUCTS <br /> STARTING FROM CREATING WIREFRAMES TO
-          DESIGNING AND CONVERTING THEM TO A DEPLOYED WEBSITE.
+          <span className="font-bold">SYSTEMATIC PROCEDURE </span>
+          TO DELIVER PRODUCTS <br /> STARTING FROM CREATING <span className="font-bold">WIREFRAMES</span> TO
+          <span className="font-bold">DESIGNING</span> AND CONVERTING THEM TO A <span className="font-bold">DEPLOYED WEBSITE</span>.
         </div>
       </div>
       <div className="w-full flex justify-start my-12">

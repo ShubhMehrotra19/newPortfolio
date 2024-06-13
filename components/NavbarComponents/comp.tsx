@@ -42,28 +42,28 @@ function Comp({ homeRef, aboutRef, workRef }: any) {
       <button
         onClick={handleClickHome}
         style={{ cursor: 'url("/icons/cursor.png"), auto' }}
-        className="px-6 py-2 rounded-full font-[600] text-[#b2de21] bg-black hover:scale-[102%] hover:bg-[#b2de21] hover:text-black transition-all duration-300 delay-75 ease-in-out"
+        className="px-6 py-2 rounded-full font-[600] text-[#b2de21] bg-black hover:scale-[102%] hover:bg-[#b2de21] hover:text-black active:scale-95 transition-all duration-300 delay-75 ease-in-out"
       >
         HOME
       </button>
       <button
         onClick={handleClickAbout}
         style={{ cursor: 'url("/icons/cursor.png"), auto' }}
-        className="px-6 py-2 rounded-full font-[600] text-[#b2de21] bg-black hover:scale-[102%] hover:bg-[#b2de21] hover:text-black transition-all duration-300 delay-75 ease-in-out"
+        className="px-6 py-2 rounded-full font-[600] text-[#b2de21] bg-black hover:scale-[102%] hover:bg-[#b2de21] hover:text-black active:scale-95 transition-all duration-300 delay-75 ease-in-out"
       >
         ABOUT
       </button>
       <button
         onClick={handleClickWork}
         style={{ cursor: 'url("/icons/cursor.png"), auto' }}
-        className="px-6 py-2 rounded-full font-[600] text-[#b2de21] bg-black hover:scale-[102%] hover:bg-[#b2de21] hover:text-black transition-all duration-300 delay-75 ease-in-out"
+        className="px-6 py-2 rounded-full font-[600] text-[#b2de21] bg-black hover:scale-[102%] hover:bg-[#b2de21] hover:text-black active:scale-95 transition-all duration-300 delay-75 ease-in-out"
       >
         WORK
       </button>
       <Link href="/">
         <button
           style={{ cursor: 'url("/icons/cursor.png"), auto' }}
-          className="px-6 py-2 rounded-full font-[600] text-[#b2de21] bg-black hover:scale-[102%] hover:bg-[#b2de21] hover:text-black transition-all duration-300 delay-75 ease-in-out"
+          className="px-6 py-2 rounded-full font-[600] text-[#b2de21] bg-black hover:scale-[102%] hover:bg-[#b2de21] hover:text-black active:scale-95 transition-all duration-300 delay-75 ease-in-out"
         >
           CONTACT
         </button>
