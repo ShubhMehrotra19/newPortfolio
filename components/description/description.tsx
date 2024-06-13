@@ -3,6 +3,7 @@
 import React, { useRef, useState } from "react";
 import { Anton, Open_Sans } from "next/font/google";
 import Image from "next/image";
+import Link from "next/link";
 
 export const anton = Anton({
   weight: ["400"],
@@ -36,7 +37,10 @@ function Description(props: Props) {
   }
 
   return (
-    <section ref={aboutRef} className="mb-32 mx-14 flex flex-col justify-center items-center">
+    <section
+      ref={aboutRef}
+      className="mb-32 mx-14 flex flex-col justify-center items-center"
+    >
       <div className="flex justify-between items-start w-full">
         <ul
           className={`text-base ${openSans.className} font-normal flex justify-start items-center gap-2`}
@@ -51,22 +55,26 @@ function Description(props: Props) {
             A MULTIDISCIPLINARY DEVELOPER HARNESSING <br /> THE POWER OF DESIGN
             AND CREATIVITY <br /> TO ACHIEVE ONLINE GOALS.
           </p>
-          <div
-            ref={talkRef}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-            className={`talking px-8 py-4 text-base rounded-full text-white bg-black hover:bg-[#B2D12E] text-center ${openSans.className} hover:scale-105 active:scale-95 transition-all duration-300 ease-in-out flex justify-center items-center gap-2`}
-          >
-            LET'S TALK
-            <Image
-              src={
-                isHovering ? "/icons/arrow_black.png" : "/icons/arrow_green.png"
-              }
-              alt=""
-              height={30}
-              width={30}
-            />
-          </div>
+          <Link href="/contact">
+            <div
+              ref={talkRef}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+              className={`talking px-8 py-4 text-base rounded-full text-white bg-black hover:bg-[#B2D12E] text-center ${openSans.className} hover:scale-105 active:scale-95 transition-all duration-300 ease-in-out flex justify-center items-center gap-2`}
+            >
+              LET'S TALK
+              <Image
+                src={
+                  isHovering
+                    ? "/icons/arrow_black.png"
+                    : "/icons/arrow_green.png"
+                }
+                alt=""
+                height={30}
+                width={30}
+              />
+            </div>
+          </Link>
         </div>
       </div>
     </section>

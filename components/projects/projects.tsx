@@ -4,6 +4,7 @@ import React, { useRef, useState } from "react";
 import Image from "next/image";
 import Display from "./display";
 import { Anton, Open_Sans } from "next/font/google";
+import Link from "next/link";
 
 export const anton = Anton({
   weight: ["400"],
@@ -74,7 +75,10 @@ function Projects(props: Props) {
   }
 
   return (
-    <section ref={workRef} className="mb-20 flex flex-col justify-center items-center mx-14">
+    <section
+      ref={workRef}
+      className="mb-20 flex flex-col justify-center items-center mx-14"
+    >
       <div className="w-full flex justify-between items-end mb-40">
         <div className="w-full text-left flex flex-col justify-start items-start">
           <p
@@ -83,38 +87,45 @@ function Projects(props: Props) {
             DESIGNING DIGITAL <br /> PRODUCTS WITH EMPHASIS <br /> ON
             <span className="text-[#b7b7b7] mb-8"> VISUAL DESIGN.</span>
           </p>
-          <div
-            ref={talkRef}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-            className={`talking px-8 py-4 text-base rounded-full text-white bg-black hover:bg-[#B2D12E] text-center ${openSans.className} hover:scale-105 active:scale-95 transition-all duration-300 ease-in-out flex justify-center items-center gap-2`}
-          >
-            LET'S TALK
-            <Image
-              src={
-                isHovering ? "/icons/arrow_black.png" : "/icons/arrow_green.png"
-              }
-              alt=""
-              height={30}
-              width={30}
-            />
-          </div>
+          <Link href="/contact">
+            <div
+              ref={talkRef}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+              className={`talking px-8 py-4 text-base rounded-full text-white bg-black hover:bg-[#B2D12E] text-center ${openSans.className} hover:scale-105 active:scale-95 transition-all duration-300 ease-in-out flex justify-center items-center gap-2`}
+            >
+              LET'S TALK
+              <Image
+                src={
+                  isHovering
+                    ? "/icons/arrow_black.png"
+                    : "/icons/arrow_green.png"
+                }
+                alt=""
+                height={30}
+                width={30}
+              />
+            </div>
+          </Link>
         </div>
-        <div className={`text-left text-base font-normal ${openSans.className}`}>
-          AS A <span className="font-bold">WEB DEVELOPER</span> AND
-          A <span className="font-bold">UI DESIGNER</span>
-          , MY PROJECTS REFLECT A MAJOR PART OF MY{" "}
-          <span className="font-bold">
-            CREATIVE AND DESIGN SKILLS.
-          </span>{" "}
-          <br />I WORK IN A{" "}
-          <span className="font-bold">SYSTEMATIC PROCEDURE </span>
-          TO DELIVER PRODUCTS <br /> STARTING FROM CREATING <span className="font-bold">WIREFRAMES</span> TO
-          <span className="font-bold">DESIGNING</span> AND CONVERTING THEM TO A <span className="font-bold">DEPLOYED WEBSITE</span>.
+        <div
+          className={`text-left text-base font-normal ${openSans.className}`}
+        >
+          AS A <span className="font-bold">WEB DEVELOPER</span> AND A{" "}
+          <span className="font-bold">UI DESIGNER</span>, MY PROJECTS REFLECT A
+          MAJOR PART OF MY{" "}
+          <span className="font-bold">CREATIVE AND DESIGN SKILLS.</span> <br />I
+          WORK IN A <span className="font-bold">SYSTEMATIC PROCEDURE </span>
+          TO DELIVER PRODUCTS <br /> STARTING FROM CREATING{" "}
+          <span className="font-bold">WIREFRAMES</span> TO
+          <span className="font-bold">DESIGNING</span> AND CONVERTING THEM TO A{" "}
+          <span className="font-bold">DEPLOYED WEBSITE</span>.
         </div>
       </div>
       <div className="w-full flex justify-start my-12">
-        <h2 className={`${anton.className} text-[60px] pb-1 border-b-[3px] border-black`}>
+        <h2
+          className={`${anton.className} text-[60px] pb-1 border-b-[3px] border-black`}
+        >
           SELECTED WORKS
         </h2>
       </div>

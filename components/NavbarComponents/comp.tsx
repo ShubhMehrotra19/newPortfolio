@@ -60,7 +60,7 @@ function Comp({ homeRef, aboutRef, workRef }: any) {
       >
         WORK
       </button>
-      <Link href="/">
+      <Link href="/contact">
         <button
           style={{ cursor: 'url("/icons/cursor.png"), auto' }}
           className="px-6 py-2 rounded-full font-[600] text-[#b2de21] bg-black hover:scale-[102%] hover:bg-[#b2de21] hover:text-black active:scale-95 transition-all duration-300 delay-75 ease-in-out"
