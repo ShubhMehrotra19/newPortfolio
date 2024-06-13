@@ -18,10 +18,12 @@ export const openSans = Open_Sans({
 })
 
 
-interface Props {}
+interface Props {
+  homeRef: React.RefObject<HTMLElement>;
+}
 
 function Hero(props: Props) {
-  const {} = props;
+  const { homeRef } = props;
   const animationRef = useRef<null | gsap.core.Timeline>(null);
 
   useEffect(() => {
@@ -108,7 +110,7 @@ function Hero(props: Props) {
   }, []);
 
   return (
-    <section className="flex flex-col mt-52 mb-20 mx-14">
+    <section ref={homeRef} className="flex flex-col mt-52 mb-20 mx-14">
       <div className="mb-16 flex flex-col">
         <div className={`heading1 text-[140px] leading-[140px] text-[#121212] ${anton.className} overflow-hidden`}>
           CREATIVE DESIGN AND

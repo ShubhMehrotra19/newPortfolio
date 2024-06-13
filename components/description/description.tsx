@@ -18,10 +18,12 @@ export const openSans = Open_Sans({
   display: "swap",
 });
 
-interface Props {}
+interface Props {
+  aboutRef: React.RefObject<HTMLElement>;
+}
 
 function Description(props: Props) {
-  const {} = props;
+  const { aboutRef } = props;
   const talkRef = useRef<HTMLDivElement>(null);
   const [isHovering, setIsHovering] = useState(false);
 
@@ -34,7 +36,7 @@ function Description(props: Props) {
   }
 
   return (
-    <section className="mb-32 mx-14 flex flex-col justify-center items-center">
+    <section ref={aboutRef} className="mb-32 mx-14 flex flex-col justify-center items-center">
       <div className="flex justify-between items-start w-full">
         <ul
           className={`text-base ${openSans.className} font-normal flex justify-start items-center gap-2`}

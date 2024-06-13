@@ -9,12 +9,8 @@ function MarqueeMix(props: Props) {
 
     return (
         <section className='mb-96 relative w-full'>
-            <div className='relative z-0'>
                 <Marquee />
-            </div>
-            <div className='absolute z-10'>
                 <Marquee2 />
-            </div>
         </section>
     )
 }

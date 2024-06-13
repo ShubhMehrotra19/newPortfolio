@@ -29,6 +29,9 @@ function LandingPage(props: any) {
   const [isThanking, setIsThanking] = useState(false);
 
   const cursorRef = useRef<HTMLDivElement>(null);
+  const homeRef = useRef<HTMLElement>(null);
+  const aboutRef = useRef<HTMLElement>(null);
+  const workRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const lenis = new Lenis();
@@ -299,14 +302,14 @@ function LandingPage(props: any) {
         }}
       >
         <div className="relative w-full z-0">
-          <div className="fixed z-10 w-full top-0 backdrop-blur-md bg-transparent">
-          <Navbar />
+          <div className="fixed z-10 w-full top-0 backdrop-blur-md bg-transparent overflow-hidden">
+          <Navbar homeRef={homeRef} aboutRef={aboutRef} workRef={workRef} />
           </div>
-          <Hero />
+          <Hero homeRef={homeRef} />
           <VideoPlaying />
-          <Description />
+          <Description aboutRef={aboutRef} />
           <MarqueeMix />
-          <Projects />
+          <Projects workRef={workRef} />
           <Contacts />
           <Footer />
         </div>
