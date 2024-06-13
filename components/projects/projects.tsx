@@ -72,7 +72,7 @@ function Projects(props: Props) {
   }
 
   return (
-    <section className="mb-32 flex flex-col justify-center items-center mx-14">
+    <section className="mb-20 flex flex-col justify-center items-center mx-14">
       <div className="w-full flex justify-between items-end mb-40">
         <div className="w-full text-left flex flex-col justify-start items-start">
           <p
@@ -116,7 +116,7 @@ function Projects(props: Props) {
           SELECTED WORKS
         </h2>
       </div>
-      <div className="mb-32 w-full">
+      <div className="w-full">
         {projects.map((project, index) => (
           <Display
             key={index}
