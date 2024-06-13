@@ -47,7 +47,7 @@ function Projects(props: Props) {
       shortDes:
         "AN ONLINE PLATFORM FOR DEVELOPERS TO TAKE UP OPEN SOURCED ISSUES AS FREELANCE",
       gitLink: "https://github.com/CueSource-PE2/CueSource-WebApp",
-      deployedLink: "https://cuesource.vercel.app/",
+      deployedLink: "https://cue-source-website.vercel.app/",
     },
     {
       index: 4,
