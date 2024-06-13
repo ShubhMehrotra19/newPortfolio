@@ -85,7 +85,7 @@ function Projects(props: Props) {
             ref={talkRef}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
-            className={`talking px-8 py-4 text-base rounded-full text-white bg-black hover:bg-[#B2D12E] cursor-pointer text-center ${openSans.className} hover:scale-105 active:scale-95 transition-all duration-300 ease-in-out flex justify-center items-center gap-2`}
+            className={`talking px-8 py-4 text-base rounded-full text-white bg-black hover:bg-[#B2D12E] text-center ${openSans.className} hover:scale-105 active:scale-95 transition-all duration-300 ease-in-out flex justify-center items-center gap-2`}
           >
             LET'S TALK
             <Image

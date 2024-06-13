@@ -8,7 +8,7 @@ function Navbar(props: Props) {
   const menuRef = useRef<HTMLDivElement>(null);
   const [isClicked, setIsClicked] = React.useState(false);
   return (
-    <nav className="mx-12 mt-3 flex justify-between items-center">
+    <nav className="mx-12 mt-3 flex justify-between items-center select-none">
       <Image src="/icons/logoIcon.png" width={160} height={100} alt="" />
       <div
         ref={menuRef}

@@ -7,7 +7,7 @@
 .scrolling-text span {
     display: inline-block;
     padding-right: 100%;
-    animation: marquee 80s linear infinite reverse; 
+    animation: marquee 80s linear infinite; 
 }
 
 @keyframes marquee {
