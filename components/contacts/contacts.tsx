@@ -2,6 +2,7 @@
 import React, { useRef } from 'react'
 import { Anton, Open_Sans } from 'next/font/google';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export const anton = Anton({
   weight: ['400'],
@@ -36,7 +37,7 @@ function Contacts(props: Props) {
             <p className={`${anton.className} text-[80px]`}>
             <span className='text-[#b7b7b7]'>hello</span><span onClick={handleMail} ref={mailRef} className='mailing cursor-pointer hover:text-[#b2d12e] hover:ml-5 transition-all duration-300 delay-75 ease-in-out'>@wevdevshubh.com</span>
             </p>
-            <Image src='/icons/mail.png' alt='' width={80} height={80} className='hover:scale-110 hover:rotate-45 transition-all duration-300 delay-75 ease-in-out' />
+            <Link href='/contact'><Image src='/icons/mail.png' alt='' width={80} height={80} className='hover:scale-110 hover:rotate-45 transition-all duration-300 delay-75 ease-in-out' /></Link>
             </div>
         </section>
     )
