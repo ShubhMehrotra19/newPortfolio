@@ -14,7 +14,7 @@ export const anton = Anton({
 });
 
 export const openSans = Open_Sans({
-  weight: ["300", "800"],
+  weight: ["300","400", "500", "600", "700", "800"],
   style: ["normal"],
   subsets: ["latin-ext", "latin", "vietnamese"],
   display: "swap",
@@ -132,7 +132,7 @@ function Projects(props: Props) {
           </Link>
         </div>
         <div
-          className={`text-left text-base font-normal ${openSans.className}`}
+          className={`text-left text-base font-medium ${openSans.className}`}
         >
           AS A <span className="font-bold">WEB DEVELOPER</span> AND A{" "}
           <span className="font-bold">UI DESIGNER</span>, MY PROJECTS REFLECT A
@@ -157,7 +157,7 @@ function Projects(props: Props) {
             <span className="text-[#b7b7b7] mb-8"> VISUAL DESIGN.</span>
           </p>
           <div
-          className={`text-left text-sm font-normal mb-8 ${openSans.className}`}
+          className={`text-left text-sm font-medium mb-8 ${openSans.className}`}
         >
           AS A <span className="font-bold">WEB DEVELOPER</span> AND A{" "}
           <span className="font-bold">UI DESIGNER</span>, MY PROJECTS REFLECT A

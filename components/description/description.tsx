@@ -13,7 +13,7 @@ export const anton = Anton({
 });
 
 export const openSans = Open_Sans({
-  weight: ["300", "800"],
+  weight: ["300","400", "500", "600", "700", "800"],
   style: ["normal"],
   subsets: ["latin-ext", "latin", "vietnamese"],
   display: "swap",
@@ -43,7 +43,7 @@ function Description(props: Props) {
     >
       <div className="flex md:flex-row flex-col justify-between items-start w-full">
         <ul
-          className={`md:text-base text-[10px] ${openSans.className} font-normal flex justify-start items-center gap-2 md:mb-0 mb-5`}
+          className={`md:text-base text-[10px] ${openSans.className} font-semibold flex justify-start items-center gap-2 md:mb-0 mb-5`}
         >
           <div className="md:h-5 md:w-5 h-3 w-3 rounded-full bg-[#B2D12E]"></div> DEPLOYING
           PRODUCTS FROM KANPUR & DELHI, INDIA.

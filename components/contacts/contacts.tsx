@@ -12,11 +12,11 @@ export const anton = Anton({
 }) 
 
 export const openSans = Open_Sans({
-  weight: ['300', '800'],
-  style: ['normal'],
-  subsets: ['latin-ext', 'latin', 'vietnamese'],
-  display: 'swap',
-})
+  weight: ["300","400", "500", "600", "700", "800"],
+  style: ["normal"],
+  subsets: ["latin-ext", "latin", "vietnamese"],
+  display: "swap",
+});
 
 interface Props {}
 
@@ -32,7 +32,7 @@ function Contacts(props: Props) {
 
     return (
         <section className='flex flex-col justify-start items-start md:mx-14 mx-4 mb-12 pb-20 border-b-2 border-[#3b3b3b]/30'>
-            <p className={`${openSans.className} font-normal md:text-[20px] text-[15px] md:mb-5 mb-3`}>HAVE A CREATIVE IDEA? LET'S TALK</p>
+            <p className={`${openSans.className} font-semibold md:text-[20px] text-[15px] md:mb-5 mb-3`}>HAVE A CREATIVE IDEA? LET'S TALK</p>
             <div className='flex gap-4 justify-start items-center w-full'>
             <p className={`${anton.className} md:text-[80px] text-[27px]`}>
             <span className='text-[#b7b7b7]'>hello</span><span onClick={handleMail} ref={mailRef} className='mailing cursor-pointer hover:text-[#b2d12e] hover:ml-5 transition-all duration-300 delay-75 ease-in-out'>@wevdevshubh.com</span>

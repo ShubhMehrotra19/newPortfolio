@@ -11,11 +11,11 @@ export const anton = Anton({
 }) 
 
 export const openSans = Open_Sans({
-  weight: ['300', '800'],
-  style: ['normal'],
-  subsets: ['latin-ext', 'latin', 'vietnamese'],
-  display: 'swap',
-})
+  weight: ["300","400", "500", "600", "700", "800"],
+  style: ["normal"],
+  subsets: ["latin-ext", "latin", "vietnamese"],
+  display: "swap",
+});
 
 
 interface Props {
@@ -120,7 +120,7 @@ function Hero(props: Props) {
         </div>
       </div>
       <div className="flex flex-col w-fit">
-        <p className={`subHeading font-light ${openSans.className} md:text-2xl text-base mb-2 pr-5`}>
+        <p className={`subHeading font-medium ${openSans.className} md:text-2xl text-base mb-2 pr-5`}>
           CREATING DESIGNS <br /> THAT RESONATE.
         </p>
         <div className="base md:h-[2px] h-[1px] bg-black"></div>

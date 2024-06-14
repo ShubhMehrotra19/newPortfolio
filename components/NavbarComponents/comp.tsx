@@ -10,7 +10,7 @@ export const anton = Anton({
 });
 
 export const openSans = Open_Sans({
-  weight: ["300", "600", "800"],
+  weight: ["300","400", "500", "600", "700", "800"],
   style: ["normal"],
   subsets: ["latin-ext", "latin", "vietnamese"],
   display: "swap",
@@ -37,33 +37,33 @@ function Comp({ homeRef, aboutRef, workRef }: any) {
 
   return (
     <div
-      className={`${openSans.className} flex justify-evenly items-center gap-5`}
+      className={`${anton.className} flex justify-evenly items-center gap-5`}
     >
       <button
         onClick={handleClickHome}
         style={{ cursor: 'url("/icons/cursor.png"), auto' }}
-        className="px-6 py-2 rounded-full font-[600] text-[#b2de21] bg-black hover:scale-[102%] hover:bg-[#b2de21] hover:text-black active:scale-95 transition-all duration-300 delay-75 ease-in-out"
+        className="px-6 py-2 rounded-full text-[#b2de21] bg-black hover:scale-[102%] hover:bg-[#b2de21] hover:text-black active:scale-95 transition-all duration-300 delay-75 ease-in-out"
       >
         HOME
       </button>
       <button
         onClick={handleClickAbout}
         style={{ cursor: 'url("/icons/cursor.png"), auto' }}
-        className="px-6 py-2 rounded-full font-[600] text-[#b2de21] bg-black hover:scale-[102%] hover:bg-[#b2de21] hover:text-black active:scale-95 transition-all duration-300 delay-75 ease-in-out"
+        className="px-6 py-2 rounded-full text-[#b2de21] bg-black hover:scale-[102%] hover:bg-[#b2de21] hover:text-black active:scale-95 transition-all duration-300 delay-75 ease-in-out"
       >
         ABOUT
       </button>
       <button
         onClick={handleClickWork}
         style={{ cursor: 'url("/icons/cursor.png"), auto' }}
-        className="px-6 py-2 rounded-full font-[600] text-[#b2de21] bg-black hover:scale-[102%] hover:bg-[#b2de21] hover:text-black active:scale-95 transition-all duration-300 delay-75 ease-in-out"
+        className="px-6 py-2 rounded-full text-[#b2de21] bg-black hover:scale-[102%] hover:bg-[#b2de21] hover:text-black active:scale-95 transition-all duration-300 delay-75 ease-in-out"
       >
         WORK
       </button>
       <Link href="/contact">
         <button
           style={{ cursor: 'url("/icons/cursor.png"), auto' }}
-          className="px-6 py-2 rounded-full font-[600] text-[#b2de21] bg-black hover:scale-[102%] hover:bg-[#b2de21] hover:text-black active:scale-95 transition-all duration-300 delay-75 ease-in-out"
+          className="px-6 py-2 rounded-full text-[#b2de21] bg-black hover:scale-[102%] hover:bg-[#b2de21] hover:text-black active:scale-95 transition-all duration-300 delay-75 ease-in-out"
         >
           CONTACT
         </button>

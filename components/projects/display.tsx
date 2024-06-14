@@ -11,11 +11,11 @@ export const anton = Anton({
 }) 
 
 export const openSans = Open_Sans({
-  weight: ['300', '800'],
-  style: ['normal'],
-  subsets: ['latin-ext', 'latin', 'vietnamese'],
-  display: 'swap',
-})
+    weight: ["300","400", "500", "600", "700", "800"],
+    style: ["normal"],
+    subsets: ["latin-ext", "latin", "vietnamese"],
+    display: "swap",
+  });
 
 function Display({ imageLink, projectName, shortDes, gitLink, deployedLink }: any) {
     const projectRef = useRef<HTMLImageElement>(null);
@@ -29,7 +29,7 @@ function Display({ imageLink, projectName, shortDes, gitLink, deployedLink }: an
             <div className='flex justify-between items-center w-full'>
                 <div className='flex flex-col items-start justify-start gap-2'>
                     <p className={`font-semibold ${anton.className} md:text-4xl text-2xl`}>{projectName}</p>
-                    <p className={`font-light ${openSans.className} md:text-base text-sm`}>{shortDes}</p>
+                    <p className={`font-semibold ${openSans.className} md:text-base text-sm`}>{shortDes}</p>
                     <div className='w-full flex md:hidden justify-end'>
                     <Link href={gitLink} target='_blank'><Image src='/icons/arrow_link.png' ref={linkedRef} className='md:hidden block linked cursor-pointer hover:rotate-90 hover:scale-110 transition duration-500 delay-75 ease-in-out' alt='' height={50} width={50} /></Link>
                     </div>
