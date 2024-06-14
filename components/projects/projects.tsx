@@ -101,7 +101,8 @@ function Projects(props: Props) {
     >
       <div className="w-full flex justify-between items-end md:mb-40 mb-8">
 
-        <div className="md:visible hidden">
+        <div className="md:block w-full hidden">
+        <div className="w-full flex justify-between items-end">
         <div className="w-full text-left flex flex-col justify-start items-start">
           <p
             className={`text-[80px] ${anton.className} leading-snug mb-12 w-full`}
@@ -142,6 +143,7 @@ function Projects(props: Props) {
           <span className="font-bold">WIREFRAMES</span> TO
           <span className="font-bold">DESIGNING</span> AND CONVERTING THEM TO A{" "}
           <span className="font-bold">DEPLOYED WEBSITE</span>.
+        </div>
         </div>
         </div>
 
