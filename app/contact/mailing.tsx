@@ -50,54 +50,54 @@ function Mailing(props: Props) {
           setBtnText("Sent message! 😊");
         },
         (error) => {
-            setBtnText("Failed! ☹️");
+          setBtnText("Failed! ☹️");
         }
       );
   };
 
   return (
-    <div className="w-full flex justify-center items-center">
+    <div className="w-full flex md:flex-row flex-col justify-center items-center md:mb-0 mb-10">
       <div
-        className={`${anton.className} text-[100px] text-white flex justify-start pb-24 items-center w-[40%] leading-tight`}
+        className={`${anton.className} md:text-[100px] text-[50px] text-white flex justify-start md:pb-24 items-center md:w-[40%] w-full leading-tight`}
       >
         LET'S GET <br /> STARTED.
       </div>
-      <div className="flex flex-col justify-start mb-28 items-start gap-5 w-[60%]">
+      <div className="flex flex-col justify-start md:mb-28 mb-1 md:-mt-0 -mt-6 items-start md:gap-5 md:w-[60%]">
         <form ref={form} onSubmit={sendEmail}>
           <div
             style={{ letterSpacing: "2px" }}
-            className={`${poppins.className} text-[30px] pt-12 font-bold text-white text-left px-3 leading-[2.2] mb-5`}
+            className={`${poppins.className} md:text-[30px] text-[16px] pt-12 font-bold text-white text-left px-3 leading-[2.2] mb-5`}
           >
             My name is &nbsp;{" "}
             <input
               required
               name="user_name"
               type="text"
-              className="text-[25px] border-b-2 border-white w-[500px] h-[36px] bg-transparent placeholder:text-white/30 focus:outline-none"
+              className="md:text-[25px] text-[13px] md:pb-0 pb-1 border-b-2 border-white md:w-[500px] w-[250px] md:h-[36px] h-[18px] bg-transparent placeholder:text-white/30 focus:outline-none"
               placeholder="    full name"
             />{" "}
-            &nbsp; and I <br />
+            &nbsp; and I <br className="md:block hidden" />
             have a &nbsp;{" "}
             <input
               name="message"
               required
-              className="text-[25px] border-b-2 border-white w-[550px] h-[36px] bg-transparent placeholder:text-white/30 focus:outline-none"
+              className="md:text-[25px] text-[13px] md:pb-0 pb-1 border-b-2 border-white md:w-[550px] w-[300px] md:h-[36px] h-[18px] bg-transparent placeholder:text-white/30 focus:outline-none"
               placeholder="    website/full-time job etc."
             />
-            &nbsp; that <br />
-            needs help. You can reach me at, <br /> &nbsp;{" "}
+            &nbsp; that <br className="md:block hidden" />
+            needs help. You can reach me at, <br className="md:block hidden" /> &nbsp;{" "}
             <input
               required
               name="user_email"
               type="text"
-              className="text-[25px] border-b-2 border-white w-[600px] h-[36px] bg-transparent placeholder:text-white/30 focus:outline-none"
+              className="md:text-[25px] text-[13px] md:pb-0 pb-1 border-b-2 border-white md:w-[600px] w-[300px] md:h-[36px] h-[18px] bg-transparent placeholder:text-white/30 focus:outline-none"
               placeholder="    your email address"
             />{" "}
-            &nbsp; to get <br /> things started.
+            &nbsp; to get <br className="md:block hidden" /> things started.
           </div>
           <button
             type="submit"
-            className={`rounded-full px-12 text-xl py-2 text-center ${openSans.className} bg-[#b2de21] text-white font-[600] hover:scale-105 active:scale-95 duration-300 ease-in-out`}
+            className={`rounded-full md:px-12 px-5 md:text-base py-2 text-center text-sm ${openSans.className} bg-[#b2de21] text-white font-[600] hover:scale-105 active:scale-95 duration-300 ease-in-out`}
           >
             {btnText}
           </button>

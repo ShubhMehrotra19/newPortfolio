@@ -110,20 +110,20 @@ function Hero(props: Props) {
   }, []);
 
   return (
-    <section ref={homeRef} className="flex flex-col mt-52 mb-20 mx-14">
-      <div className="mb-16 flex flex-col">
-        <div className={`heading1 text-[140px] leading-[140px] text-[#121212] ${anton.className} overflow-hidden`}>
+    <section ref={homeRef} className="flex flex-col md:mt-52 mt-36 mb-20 md:mx-14 mx-4">
+      <div className="md:mb-16 mb-6 flex flex-col">
+        <div className={`heading1 md:text-[140px] text-[40px] md:leading-[140px] leading-[1] text-[#121212] ${anton.className} overflow-hidden`}>
           CREATIVE DESIGN AND
         </div>
-        <div className={`heading2 text-[140px] leading-[140px] text-[#121212] ${anton.className} overflow-hidden`}>
+        <div className={`heading2 md:text-[140px] text-[40px] md:leading-[140px] leading-[1] text-[#121212] ${anton.className} overflow-hidden`}>
           WEBSITE DEVELOPER.
         </div>
       </div>
       <div className="flex flex-col w-fit">
-        <p className={`subHeading font-light ${openSans.className} text-2xl mb-2 pr-5`}>
+        <p className={`subHeading font-light ${openSans.className} md:text-2xl text-base mb-2 pr-5`}>
           CREATING DESIGNS <br /> THAT RESONATE.
         </p>
-        <div className="base h-[2px] bg-black"></div>
+        <div className="base md:h-[2px] h-[1px] bg-black"></div>
       </div>
     </section>
   );

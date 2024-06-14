@@ -39,18 +39,18 @@ function Description(props: Props) {
   return (
     <section
       ref={aboutRef}
-      className="mb-32 mx-14 flex flex-col justify-center items-center"
+      className="md:mb-52 mb-32 md:mx-14 mx-4 flex flex-col justify-center items-center"
     >
-      <div className="flex justify-between items-start w-full">
+      <div className="flex md:flex-row flex-col justify-between items-start w-full">
         <ul
-          className={`text-base ${openSans.className} font-normal flex justify-start items-center gap-2`}
+          className={`md:text-base text-[10px] ${openSans.className} font-normal flex justify-start items-center gap-2 md:mb-0 mb-5`}
         >
-          <div className="h-5 w-5 rounded-full bg-[#B2D12E]"></div> DEPLOYING
+          <div className="md:h-5 md:w-5 h-3 w-3 rounded-full bg-[#B2D12E]"></div> DEPLOYING
           PRODUCTS FROM KANPUR & DELHI, INDIA.
         </ul>
         <div className="flex flex-col justify-start items-start text-left">
           <p
-            className={`font-medium text-4xl ${anton.className} leading-snug mb-5`}
+            className={`font-medium text-4xl ${anton.className} md:leading-snug leading-[1.2] mb-5`}
           >
             A MULTIDISCIPLINARY DEVELOPER HARNESSING <br /> THE POWER OF DESIGN
             AND CREATIVITY <br /> TO ACHIEVE ONLINE GOALS.
@@ -60,7 +60,7 @@ function Description(props: Props) {
               ref={talkRef}
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
-              className={`talking px-8 py-4 text-base rounded-full text-white bg-black hover:bg-[#B2D12E] text-center ${openSans.className} hover:scale-105 active:scale-95 transition-all duration-300 ease-in-out flex justify-center items-center gap-2`}
+              className={`talking md:px-8 px-5 md:py-4 py-2 md:text-base text-sm rounded-full text-white bg-black hover:bg-[#B2D12E] text-center ${openSans.className} hover:scale-105 active:scale-95 transition-all duration-300 ease-in-out flex justify-center items-center gap-2`}
             >
               LET'S TALK
               <Image

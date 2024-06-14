@@ -22,7 +22,7 @@ function Footer() {
     const thankRef = useRef(null);
     return (
         <section style={{ cursor: 'url("/icons/cursorWhite.png"), auto'}} ref={footerRef} className='footer bg-black flex flex-col justify-start items-center pt-12 px-5 h-[500px] overflow-hidden'>
-    <div className="container flex flex-col items-center sm:flex-row">
+    <div className="container flex flex-col items-center sm:flex-row md:mb-0 mb-16">
         <Image src="/icons/logoIcon.png" alt="logo" width={100} height={100} />
         <p className="mt-4 text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l sm:border-gray-200 sm:mt-0">&copy; all rights reserved @ Shubh Mehrotra.
         </p>
@@ -47,7 +47,8 @@ function Footer() {
             </Link>
         </span>
     </div>
-    <p ref={thankRef} className={`thanku ${anton.className} text-[#d7d7d7] text-[360px]`}>THANK YOU</p>
+    <p ref={thankRef} className={`thanku md:block hidden ${anton.className} text-[#d7d7d7] md:text-[360px]`}>THANK YOU</p>
+    <p ref={thankRef} className={`block md:hidden ${anton.className} text-[#d7d7d7] text-[140px] text-center leading-[1]`}>THANK YOU</p>
         </section>
     )
 }
