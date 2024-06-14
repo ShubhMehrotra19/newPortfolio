@@ -12,6 +12,7 @@ import MarqueeMix from "../marqueeMixed/marqueeMix";
 import Projects from "../projects/projects";
 import Contacts from "../contacts/contacts";
 import Footer from "../footer/footer";
+import { Suspense } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -81,7 +82,6 @@ function LandingPage(props: any) {
   }, []);
 
   useEffect(() => {
-
     const cursor = cursorRef.current;
 
     if (!cursor) return;
@@ -304,10 +304,12 @@ function LandingPage(props: any) {
       >
         <div className="relative w-full z-0 overflow-x-hidden">
           <div className="fixed z-10 w-full top-0 backdrop-blur-md bg-transparent overflow-hidden">
-          <Navbar homeRef={homeRef} aboutRef={aboutRef} workRef={workRef} />
+            <Navbar homeRef={homeRef} aboutRef={aboutRef} workRef={workRef} />
           </div>
           <Hero homeRef={homeRef} />
-          <VideoPlaying />
+          <Suspense fallback={<div>Loading...</div>}>
+            <VideoPlaying />
+          </Suspense>
           <Description aboutRef={aboutRef} />
           <MarqueeMix />
           <Projects workRef={workRef} />

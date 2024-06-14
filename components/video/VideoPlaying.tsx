@@ -10,7 +10,7 @@ function VideoPlaying(props: Props) {
     return (
         <section className='flex flex-col justify-center items-center md:mb-16 mb-6'>
            <video autoPlay muted loop ref={videoRef} className='video w-full h-full object-cover cursor-pointer mb-8'>
-               <source src="/video/video.mp4" type="video/mp4"/>
+               <source src="https://res.cloudinary.com/dwftb7joy/video/upload/f_auto:video,q_auto/xwmxgd7ritithfaypjbm" type="video/mp4"/>
               </video>
         </section>
     )
