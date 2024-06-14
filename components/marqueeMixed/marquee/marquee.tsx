@@ -23,10 +23,10 @@ function Marquee(props: Props) {
   const {} = props;
   const textWidth = 8000; 
   return (
-    <section className="w-[1800px] h-[160px] bg-[#B2D12E] flex justify-center items-center mb-3 -ml-2 rotate-[3deg] overflow-hidden">
+    <section className="md:w-[1800px] w-[600px] md:h-[160px] h-[80px] bg-[#B2D12E] flex justify-center items-center mb-3 -ml-2 rotate-[3deg] overflow-hidden">
       <div className="scrolling-text whitespace-nowrap">
         <span
-          className={`text-[120px] ${anton.className} text-white inline-block`}
+          className={`md:text-[120px] text-[40px] ${anton.className} text-white inline-block`}
           style={{ width: `${textWidth}px` }}
         >
           NEXT.JS &nbsp; # &nbsp; TAILWIND &nbsp; # &nbsp; REACT.JS &nbsp; #

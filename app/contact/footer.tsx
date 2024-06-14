@@ -8,7 +8,7 @@ function Footer(props: Props) {
     const {} = props
 
     return (
-        <div className="mx-12 flex flex-col items-center sm:flex-row">
+        <div className="mx-12 flex flex-col items-center sm:flex-row md:pb-0 pb-6">
         <Image src="/icons/logoIcon.png" alt="logo" width={100} height={100} />
         <p className="mt-4 text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l sm:border-gray-200 sm:mt-0">
           &copy; all rights reserved @ Shubh Mehrotra.

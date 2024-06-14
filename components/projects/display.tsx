@@ -28,10 +28,13 @@ function Display({ imageLink, projectName, shortDes, gitLink, deployedLink }: an
             </div>
             <div className='flex justify-between items-center w-full'>
                 <div className='flex flex-col items-start justify-start gap-2'>
-                    <p className={`font-semibold ${anton.className} text-4xl`}>{projectName}</p>
-                    <p className={`font-light ${openSans.className} text-base`}>{shortDes}</p>
+                    <p className={`font-semibold ${anton.className} md:text-4xl text-2xl`}>{projectName}</p>
+                    <p className={`font-light ${openSans.className} md:text-base text-sm`}>{shortDes}</p>
+                    <div className='w-full flex md:hidden justify-end'>
+                    <Link href={gitLink} target='_blank'><Image src='/icons/arrow_link.png' ref={linkedRef} className='md:hidden block linked cursor-pointer hover:rotate-90 hover:scale-110 transition duration-500 delay-75 ease-in-out' alt='' height={50} width={50} /></Link>
+                    </div>
                 </div>
-                <Link href={gitLink} target='_blank'><Image src='/icons/arrow_link.png' ref={linkedRef} className='linked cursor-pointer hover:rotate-90 hover:scale-110 transition duration-500 delay-75 ease-in-out' alt='arrow' height={100} width={100} /></Link>
+                <Link href={gitLink} target='_blank'><Image src='/icons/arrow_link.png' ref={linkedRef} className='md:block hidden linked cursor-pointer hover:rotate-90 hover:scale-110 transition duration-500 delay-75 ease-in-out' alt='' height={100} width={100} /></Link>
             </div>
         </div>
     )

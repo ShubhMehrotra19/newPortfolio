@@ -42,14 +42,14 @@ function Navbar({homeRef, aboutRef, workRef}: any) {
   };
 
   return (
-    <nav className="mx-12 mt-3 flex justify-between items-center select-none">
-      <Image src="/icons/logoIcon.png" width={160} height={100} alt="" />
-      <div className="bar">
+    <nav className="md:mx-12 mx-2 mt-3 flex justify-between items-center select-none">
+      <Image src="/icons/logoIcon.png" width={160} height={100} className="md:w-[160px] md:h-[100px] h-[80px] w-[140px]" alt="" />
+      <div className="bar md:block hidden">
         <Comp homeRef={homeRef} aboutRef={aboutRef} workRef={workRef} />
       </div>
       <div
         ref={menuRef}
-        className="menu cursor-pointer flex justify-center items-center gap-6 px-3"
+        className="menu hidden cursor-pointer md:flex justify-center items-center gap-6 px-3"
       >
         <p className="font-light text-lg">menu</p>
         <Image

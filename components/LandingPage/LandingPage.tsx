@@ -290,6 +290,7 @@ function LandingPage(props: any) {
       <div
         id="welcome"
         style={{ display: isWelcomeAnimationComplete ? "none" : "block" }}
+        className="overflow-hidden"
       >
         <Welcome />
       </div>
@@ -301,7 +302,7 @@ function LandingPage(props: any) {
           display: isWelcomeAnimationComplete ? "block" : "none",
         }}
       >
-        <div className="relative w-full z-0">
+        <div className="relative w-full z-0 overflow-x-hidden">
           <div className="fixed z-10 w-full top-0 backdrop-blur-md bg-transparent overflow-hidden">
           <Navbar homeRef={homeRef} aboutRef={aboutRef} workRef={workRef} />
           </div>
@@ -322,7 +323,7 @@ function LandingPage(props: any) {
                 : `blur(0px)`,
             color: isLinked ? `#000` : `#fff`,
           }}
-          className={`cursorCustom h-3 w-3 fixed top-0 left-0 pointer-events-none z-[500] rounded-full text-white font-light overflow-hidden flex justify-center items-center text-center ${
+          className={`cursorCustom hidden h-3 w-3 fixed top-0 left-0 pointer-events-none z-[500] rounded-full text-white font-light overflow-hidden md:flex justify-center items-center text-center ${
             isMenu ? `text-[2.5px] bg-black` : `text-[0px] bg-black`
           } ${isVideo ? `text-[5px] bg-white` : `text-[0px] bg-black`}
           ${isButton ? `bg-transparent text-[5px]` : `text-[0px] bg-black`}

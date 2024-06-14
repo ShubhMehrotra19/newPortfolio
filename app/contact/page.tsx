@@ -13,9 +13,9 @@ function Page(props: Props) {
   return (
     <section
       style={{ cursor: 'url("/icons/cursorWhite.png"), auto' }}
-      className="h-screen w-screen bg-black"
+      className="md:h-screen w-screen bg-black"
     >
-      <div className="flex flex-col mx-14">
+      <div className="flex flex-col md:mx-14 mx-4">
         <Navbar />
         <Mailing />
       </div>
