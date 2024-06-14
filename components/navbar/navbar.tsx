@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useRef, useCallback } from "react";
 import Image from "next/image";
-import Comp from "../NavbarComponents/comp";
+import Comp, { openSans } from "../NavbarComponents/comp";
 import gsap from "gsap";
 
 function Navbar({homeRef, aboutRef, workRef}: any) {
@@ -51,7 +51,7 @@ function Navbar({homeRef, aboutRef, workRef}: any) {
         ref={menuRef}
         className="menu hidden cursor-pointer md:flex justify-center items-center gap-6 px-3"
       >
-        <p className="font-light text-lg">menu</p>
+        <p className={`font-semibold text-xl ${openSans.className}`}>menu</p>
         <Image
           className="transition-all duration-300 ease-in-out delay-75"
           onClick={toggleMenu}
