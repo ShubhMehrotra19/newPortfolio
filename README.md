@@ -56,7 +56,7 @@ The design of this portfolio was meticulously crafted using Figma. The process i
 
 5. **Design System**: Establishing a consistent design system including color palettes, typography scales, and reusable components.
 
-[Link to Figma Project]
+[[Link to Figma Project]](https://www.figma.com/design/PVovSNfrMz0QKlox24MZdR/Portfolio-Design?node-id=0-1&t=14bGhO0MtkcBUeBS-1)
 
 ## Implementation Details
 1. **Next.js and TypeScript Setup**: Configured a Next.js project with TypeScript for type-safe development.
