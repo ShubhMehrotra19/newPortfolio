@@ -1,84 +1,74 @@
-// marquee2.tsx
-import React from "react";
-import "./marquee2.css";
-import { Anton, Open_Sans } from 'next/font/google';
+import React, { useEffect, useRef, useState } from "react";
+import { Anton } from "next/font/google";
 
-export const anton = Anton({
-  weight: ['400'],
-  style: ['normal'],
-  subsets: ['latin-ext', 'latin', 'vietnamese'],
-  display: 'swap',
-}) 
+const anton = Anton({
+  weight: ["400"],
+  style: ["normal"],
+  subsets: ["latin-ext", "latin", "vietnamese"],
+  display: "swap",
+});
 
-export const openSans = Open_Sans({
-  weight: ['300', '800'],
-  style: ['normal'],
-  subsets: ['latin-ext', 'latin', 'vietnamese'],
-  display: 'swap',
-})
+const Marquee2 = () => {
+  const scrollerRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+  const [marqueeLength, setMarqueeLength] = useState(0);
 
-interface Props {}
+  useEffect(() => {
+    const calculateMarqueeLength = () => {
+      const screenWidth = window.innerWidth;
+      setMarqueeLength(screenWidth + 200);
+    };
 
-function Marquee2(props: Props) {
-  const {} = props;
-  const textWidth = 8000; 
+    calculateMarqueeLength();
+
+    window.addEventListener("resize", calculateMarqueeLength);
+
+    if (scrollerRef.current && contentRef.current) {
+      const scrollerInner = scrollerRef.current;
+      const scrollerContent = contentRef.current;
+      const duplicatedContent = scrollerContent.cloneNode(true) as HTMLElement;
+      duplicatedContent.setAttribute("aria-hidden", "true");
+      scrollerInner.appendChild(duplicatedContent);
+    }
+
+    return () => {
+      window.removeEventListener("resize", calculateMarqueeLength);
+    };
+  }, []);
+
+  const design =
+    "inline-flex items-center text-4xl sm:text-6xl md:text-8xl lg:text-[100px] text-white px-3 sm:px-4 md:px-6";
 
   return (
-    <section className="md:w-[1800px] w-[600px] md:h-[160px] h-[80px] bg-[#337225] flex justify-center items-center -ml-3 -rotate-[3deg] overflow-hidden">
-      <div className="scrolling-text whitespace-nowrap">
-        <span
-          className={`md:text-[120px] text-[40px] ${anton.className} text-white inline-block`}
-          style={{ width: `${textWidth}px` }}
-        >
-          UI DESIGNING &nbsp; # &nbsp; UX REPORT &nbsp; # &nbsp; FIGMA &nbsp; #
-          &nbsp; LUNACY &nbsp; # &nbsp; CANVA &nbsp; # &nbsp; VISME &nbsp; #
-          &nbsp; UI DESIGNING &nbsp; # &nbsp; UX REPORT &nbsp; # &nbsp; FIGMA
-          &nbsp; # &nbsp; LUNACY &nbsp; # &nbsp; CANVA &nbsp; # &nbsp; VISME
-          &nbsp; # &nbsp;
-          UI DESIGNING &nbsp; # &nbsp; UX REPORT &nbsp; # &nbsp; FIGMA &nbsp; #
-          &nbsp; LUNACY &nbsp; # &nbsp; CANVA &nbsp; # &nbsp; VISME &nbsp; #
-          &nbsp; UI DESIGNING &nbsp; # &nbsp; UX REPORT &nbsp; # &nbsp; FIGMA
-          &nbsp; # &nbsp; LUNACY &nbsp; # &nbsp; CANVA &nbsp; # &nbsp; VISME
-          &nbsp; # &nbsp;
-          UI DESIGNING &nbsp; # &nbsp; UX REPORT &nbsp; # &nbsp; FIGMA &nbsp; #
-          &nbsp; LUNACY &nbsp; # &nbsp; CANVA &nbsp; # &nbsp; VISME &nbsp; #
-          &nbsp; UI DESIGNING &nbsp; # &nbsp; UX REPORT &nbsp; # &nbsp; FIGMA
-          &nbsp; # &nbsp; LUNACY &nbsp; # &nbsp; CANVA &nbsp; # &nbsp; VISME
-          &nbsp; # &nbsp;
-          UI DESIGNING &nbsp; # &nbsp; UX REPORT &nbsp; # &nbsp; FIGMA &nbsp; #
-          &nbsp; LUNACY &nbsp; # &nbsp; CANVA &nbsp; # &nbsp; VISME &nbsp; #
-          &nbsp; UI DESIGNING &nbsp; # &nbsp; UX REPORT &nbsp; # &nbsp; FIGMA
-          &nbsp; # &nbsp; LUNACY &nbsp; # &nbsp; CANVA &nbsp; # &nbsp; VISME
-          &nbsp; # &nbsp;
-          UI DESIGNING &nbsp; # &nbsp; UX REPORT &nbsp; # &nbsp; FIGMA &nbsp; #
-          &nbsp; LUNACY &nbsp; # &nbsp; CANVA &nbsp; # &nbsp; VISME &nbsp; #
-          &nbsp; UI DESIGNING &nbsp; # &nbsp; UX REPORT &nbsp; # &nbsp; FIGMA
-          &nbsp; # &nbsp; LUNACY &nbsp; # &nbsp; CANVA &nbsp; # &nbsp; VISME
-          &nbsp; # &nbsp;
-          UI DESIGNING &nbsp; # &nbsp; UX REPORT &nbsp; # &nbsp; FIGMA &nbsp; #
-          &nbsp; LUNACY &nbsp; # &nbsp; CANVA &nbsp; # &nbsp; VISME &nbsp; #
-          &nbsp; UI DESIGNING &nbsp; # &nbsp; UX REPORT &nbsp; # &nbsp; FIGMA
-          &nbsp; # &nbsp; LUNACY &nbsp; # &nbsp; CANVA &nbsp; # &nbsp; VISME
-          &nbsp; # &nbsp;
-          UI DESIGNING &nbsp; # &nbsp; UX REPORT &nbsp; # &nbsp; FIGMA &nbsp; #
-          &nbsp; LUNACY &nbsp; # &nbsp; CANVA &nbsp; # &nbsp; VISME &nbsp; #
-          &nbsp; UI DESIGNING &nbsp; # &nbsp; UX REPORT &nbsp; # &nbsp; FIGMA
-          &nbsp; # &nbsp; LUNACY &nbsp; # &nbsp; CANVA &nbsp; # &nbsp; VISME
-          &nbsp; # &nbsp;
-          UI DESIGNING &nbsp; # &nbsp; UX REPORT &nbsp; # &nbsp; FIGMA &nbsp; #
-          &nbsp; LUNACY &nbsp; # &nbsp; CANVA &nbsp; # &nbsp; VISME &nbsp; #
-          &nbsp; UI DESIGNING &nbsp; # &nbsp; UX REPORT &nbsp; # &nbsp; FIGMA
-          &nbsp; # &nbsp; LUNACY &nbsp; # &nbsp; CANVA &nbsp; # &nbsp; VISME
-          &nbsp; # &nbsp;
-          UI DESIGNING &nbsp; # &nbsp; UX REPORT &nbsp; # &nbsp; FIGMA &nbsp; #
-          &nbsp; LUNACY &nbsp; # &nbsp; CANVA &nbsp; # &nbsp; VISME &nbsp; #
-          &nbsp; UI DESIGNING &nbsp; # &nbsp; UX REPORT &nbsp; # &nbsp; FIGMA
-          &nbsp; # &nbsp; LUNACY &nbsp; # &nbsp; CANVA &nbsp; # &nbsp; VISME
-          &nbsp; # &nbsp;
-        </span>
+    <section
+      className={`w-[${marqueeLength}] overflow-hidden bg-[#337225] py-8 -rotate-3`}>
+      <div
+        ref={scrollerRef}
+        className="relative flex whitespace-nowrap"
+        style={{
+          mask: "linear-gradient(90deg, transparent, white 20%, white 80%, transparent)",
+          WebkitMask:
+            "linear-gradient(90deg, transparent, white 20%, white 80%, transparent)",
+          width: `${marqueeLength}px`,
+        }}>
+        <div
+          ref={contentRef}
+          className={`flex items-center animate-scroll1 ${anton.className}`}>
+          <span className={design}>UI DESIGNING</span>
+          <span className={design}>#</span>
+          <span className={design}>UX REPORT</span>
+          <span className={design}>#</span>
+          <span className={design}>FIGMA</span>
+          <span className={design}>#</span>
+          <span className={design}>LUNACY</span>
+          <span className={design}>CANVA</span>
+          <span className={design}>#</span>
+          <span className={design}>VISME</span>
+          <span className={design}>#</span>
+        </div>
       </div>
     </section>
   );
-}
+};
 
 export default Marquee2;
