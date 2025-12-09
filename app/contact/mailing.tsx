@@ -56,49 +56,47 @@ function Mailing(props: Props) {
   };
 
   return (
-    <div className="w-full flex md:flex-row flex-col justify-center items-center md:mb-0 mb-10">
+    <div className="w-full flex md:flex-row flex-col justify-center items-center md:mb-0 mb-10 md:px-8 px-4">
       <div
-        className={`${anton.className} md:text-[100px] text-[50px] text-white flex justify-start md:pb-24 items-center md:w-[40%] w-full leading-tight`}
-      >
+        className={`${anton.className} md:text-[100px] text-[40px] text-white flex justify-start md:pb-24 pb-8 items-center md:w-[40%] w-full leading-tight`}>
         LET'S GET <br /> STARTED.
       </div>
-      <div className="flex flex-col justify-start md:mb-28 mb-1 md:-mt-0 -mt-6 items-start md:gap-5 md:w-[60%]">
-        <form ref={form} onSubmit={sendEmail}>
+      <div className="flex flex-col justify-start md:mb-28 mb-1 items-start md:gap-5 md:w-[60%] w-full">
+        <form ref={form} onSubmit={sendEmail} className="w-full">
           <div
             style={{ letterSpacing: "2px" }}
-            className={`${poppins.className} md:text-[30px] text-[16px] pt-12 font-bold text-white text-left px-3 leading-[2.2] mb-5`}
-          >
-            My name is &nbsp;{" "}
+            className={`${poppins.className} md:text-[30px] text-[18px] md:pt-12 pt-0 font-bold text-white text-left md:px-3 px-0 md:leading-[2.2] leading-[2.5] mb-5`}>
+            My name is{" "}
             <input
               required
               name="user_name"
               type="text"
-              className="md:text-[25px] text-[13px] md:pb-0 pb-1 border-b-2 border-white md:w-[500px] w-[250px] md:h-[36px] h-[18px] bg-transparent placeholder:text-white/30 focus:outline-none"
-              placeholder="    full name"
+              className="md:text-[25px] text-[16px] pb-1 border-b-2 border-white md:w-[500px] w-full max-w-[280px] md:h-[36px] h-[28px] bg-transparent placeholder:text-white/30 placeholder:text-[15px] placeholder:md:text-[20px] focus:outline-none"
+              placeholder="full name"
             />{" "}
-            &nbsp; and I <br className="md:block hidden" />
-            have a &nbsp;{" "}
+            and I <br className="md:hidden block" />
+            have a{" "}
             <input
               name="message"
               required
-              className="md:text-[25px] text-[13px] md:pb-0 pb-1 border-b-2 border-white md:w-[550px] w-[300px] md:h-[36px] h-[18px] bg-transparent placeholder:text-white/30 focus:outline-none"
-              placeholder="    website/full-time job etc."
-            />
-            &nbsp; that <br className="md:block hidden" />
-            needs help. You can reach me at, <br className="md:block hidden" /> &nbsp;{" "}
+              className="md:text-[25px] text-[16px] pb-1 border-b-2 border-white md:w-[550px] w-full max-w-[280px] md:h-[36px] h-[28px] bg-transparent placeholder:text-white/30 placeholder:text-[15px] placeholder:md:text-[20px] focus:outline-none"
+              placeholder="website/full-time job"
+            />{" "}
+            that <br className="md:hidden block" />
+            needs help. You can reach me at, <br className="md:hidden block" />
             <input
               required
               name="user_email"
-              type="text"
-              className="md:text-[25px] text-[13px] md:pb-0 pb-1 border-b-2 border-white md:w-[600px] w-[300px] md:h-[36px] h-[18px] bg-transparent placeholder:text-white/30 focus:outline-none"
-              placeholder="    your email address"
+              type="email"
+              className="md:text-[25px] text-[16px] pb-1 border-b-2 border-white md:w-[600px] w-full max-w-[280px] md:h-[36px] h-[28px] bg-transparent placeholder:text-white/30 placeholder:text-[15px] placeholder:md:text-[20px] focus:outline-none"
+              placeholder="your email address"
             />{" "}
-            &nbsp; to get <br className="md:block hidden" /> things started.
+            to get <br className="md:hidden block" />
+            things started.
           </div>
           <button
             type="submit"
-            className={`rounded-full md:px-12 px-5 md:text-base py-2 text-center text-sm ${openSans.className} bg-[#b2de21] text-white font-[600] hover:scale-105 active:scale-95 duration-300 ease-in-out`}
-          >
+            className={`rounded-full md:px-12 px-6 md:py-2 py-2 text-center md:text-base text-sm ${openSans.className} bg-[#b2de21] text-white font-[600] hover:scale-105 active:scale-95 duration-300 ease-in-out transition-transform`}>
             {btnText}
           </button>
         </form>

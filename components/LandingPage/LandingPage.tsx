@@ -1,5 +1,11 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import React, {
+  useEffect,
+  useRef,
+  useState,
+  useCallback,
+  useMemo,
+} from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import Lenis from "@studio-freight/lenis";
@@ -16,33 +22,75 @@ import { Suspense } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
+// Cursor state configuration
+type CursorState = {
+  scale: number;
+  emoji: string;
+  bg: string;
+  text: string;
+  blur?: boolean;
+  color?: string;
+};
+
+const CURSOR_STATES: Record<string, CursorState> = {
+  menu: { scale: 6, emoji: "📃", bg: "bg-white/60", text: "text-[2.5px]" },
+  video: { scale: 6, emoji: "📽️", bg: "bg-white/60", text: "text-[5px]" },
+  button: {
+    scale: 6,
+    emoji: "🤙🏽",
+    bg: "bg-transparent",
+    text: "text-[5px]",
+    blur: true,
+  },
+  talking: {
+    scale: 6,
+    emoji: "📞",
+    bg: "bg-transparent",
+    text: "text-[5px]",
+    blur: true,
+  },
+  linked: {
+    scale: 6,
+    emoji: "click me",
+    bg: "bg-white",
+    text: "text-[2.5px] font-medium",
+    color: "#000",
+  },
+  project: { scale: 6, emoji: "👀", bg: "bg-white/35", text: "text-[5px]" },
+  mailing: {
+    scale: 6,
+    emoji: "✒️",
+    bg: "bg-transparent",
+    text: "text-[5px]",
+    blur: true,
+  },
+  footer: { scale: 1, emoji: "", bg: "bg-white", text: "text-[0px]" },
+  thanking: { scale: 6, emoji: "🤍", bg: "bg-[#B2DE21]", text: "text-[5px]" },
+};
+
 function LandingPage(props: any) {
   const [isWelcomeAnimationComplete, setIsWelcomeAnimationComplete] =
     useState(false);
-  const [isMenu, setIsMenu] = useState(false);
-  const [isVideo, setIsVideo] = useState(false);
-  const [isButton, setIsButton] = useState(false);
-  const [isTalking, setIsTalking] = useState(false);
-  const [isProject, setIsProject] = useState(false);
-  const [isLinked, setIsLinked] = useState(false);
-  const [isMailing, setIsMailing] = useState(false);
-  const [isFooter, setIsFooter] = useState(false);
-  const [isThanking, setIsThanking] = useState(false);
+  const [activeCursor, setActiveCursor] = useState<string | null>(null);
 
   const cursorRef = useRef<HTMLDivElement>(null);
   const homeRef = useRef<HTMLElement>(null);
   const aboutRef = useRef<HTMLElement>(null);
   const workRef = useRef<HTMLElement>(null);
+  const lenisRef = useRef<Lenis | null>(null);
 
+  // Initialize smooth scroll and welcome animation
   useEffect(() => {
     const lenis = new Lenis();
+    lenisRef.current = lenis;
 
     lenis.on("scroll", ScrollTrigger.update);
 
-    gsap.ticker.add((time) => {
+    const ticker = (time: number) => {
       lenis.raf(time * 900);
-    });
+    };
 
+    gsap.ticker.add(ticker);
     gsap.ticker.lagSmoothing(0);
 
     const welcomeAnimation = gsap.timeline();
@@ -59,11 +107,16 @@ function LandingPage(props: any) {
         duration: 1,
         onComplete: () => setIsWelcomeAnimationComplete(true),
       });
+
+    return () => {
+      gsap.ticker.remove(ticker);
+      lenis.destroy();
+    };
   }, []);
 
+  // Cursor follow effect
   useEffect(() => {
     const cursor = cursorRef.current;
-
     if (!cursor) return;
 
     const handleMouseMove = (e: MouseEvent) => {
@@ -75,223 +128,95 @@ function LandingPage(props: any) {
     };
 
     document.addEventListener("mousemove", handleMouseMove);
+    return () => document.removeEventListener("mousemove", handleMouseMove);
+  }, []);
 
-    return () => {
-      document.removeEventListener("mousemove", handleMouseMove);
+  // Create hover handlers with useCallback
+  const createHoverHandlers = useCallback((cursorType: string) => {
+    const config = CURSOR_STATES[cursorType];
+
+    return {
+      enter: () => {
+        setActiveCursor(cursorType);
+        gsap.to(cursorRef.current, { scale: config.scale });
+      },
+      leave: () => {
+        setActiveCursor(null);
+        gsap.to(cursorRef.current, { scale: 1 });
+      },
     };
   }, []);
 
+  // Hover effect setup with optimized event listeners
   useEffect(() => {
     const cursor = cursorRef.current;
-
     if (!cursor) return;
 
-    const menu = document.querySelector(".menu");
-    const videoElement = document.querySelectorAll(".video");
-    const btnHovering = document.querySelectorAll(".viewBtn");
-    const talkHovering = document.querySelectorAll(".talking");
-    const linkedHovering = document.querySelectorAll(".linked");
-    const projectHovering = document.querySelectorAll(".projectImage");
-    const mailHovering = document.querySelectorAll(".mailing");
-    const footerHovering = document.querySelectorAll(".footer");
-    const thanking = document.querySelectorAll(".thanku");
+    const hoverElements = [
+      { selector: ".menu", type: "menu" },
+      { selector: ".video", type: "video" },
+      { selector: ".viewBtn", type: "button" },
+      { selector: ".talking", type: "talking" },
+      { selector: ".linked", type: "linked" },
+      { selector: ".projectImage", type: "project" },
+      { selector: ".mailing", type: "mailing" },
+      { selector: ".footer", type: "footer" },
+      { selector: ".thanku", type: "thanking" },
+    ];
 
-    if (!menu) return;
-    if (!videoElement.length) return;
-    if (!btnHovering) return;
-    if (!talkHovering) return;
-    if (!linkedHovering) return;
-    if (!projectHovering) return;
-    if (!mailHovering) return;
-    if (!footerHovering) return;
-    if (!thanking) return;
+    const cleanupFunctions: (() => void)[] = [];
 
-    const handleMenuEnter = () => {
-      setIsMenu(true);
-      gsap.to(cursor, { scale: 6 });
-    };
+    hoverElements.forEach(({ selector, type }) => {
+      const elements = document.querySelectorAll(selector);
+      if (!elements.length) return;
 
-    const handleMenuLeave = () => {
-      setIsMenu(false);
-      gsap.to(cursor, { scale: 1 });
-    };
+      const handlers = createHoverHandlers(type);
 
-    const handleVideoEnter = () => {
-      setIsVideo(true);
-      gsap.to(cursor, { scale: 6 });
-    };
+      elements.forEach((element) => {
+        element.addEventListener("mouseenter", handlers.enter);
+        element.addEventListener("mouseleave", handlers.leave);
+      });
 
-    const handleVideoLeave = () => {
-      setIsVideo(false);
-      gsap.to(cursor, { scale: 1 });
-    };
-
-    const handleButtonEnter = () => {
-      setIsButton(true);
-      gsap.to(cursor, { scale: 6 });
-    };
-
-    const handleButtonLeave = () => {
-      setIsButton(false);
-      gsap.to(cursor, { scale: 1 });
-    };
-
-    const handleTalkEnter = () => {
-      setIsTalking(true);
-      gsap.to(cursor, { scale: 6 });
-    };
-
-    const handleTalkLeave = () => {
-      setIsTalking(false);
-      gsap.to(cursor, { scale: 1 });
-    };
-
-    const handleLinkedEnter = () => {
-      setIsLinked(true);
-      gsap.to(cursor, { scale: 6 });
-    };
-
-    const handleLinkedLeave = () => {
-      setIsLinked(false);
-      gsap.to(cursor, { scale: 1 });
-    };
-
-    const handleProjectEnter = () => {
-      setIsProject(true);
-      gsap.to(cursor, { scale: 6 });
-    };
-
-    const handleProjectLeave = () => {
-      setIsProject(false);
-      gsap.to(cursor, { scale: 1 });
-    };
-
-    const handleMailEnter = () => {
-      setIsMailing(true);
-      gsap.to(cursor, { scale: 6 });
-    };
-
-    const handleMailLeave = () => {
-      setIsMailing(false);
-      gsap.to(cursor, { scale: 1 });
-    };
-
-    const handleFooterEnter = () => {
-      setIsFooter(true);
-      gsap.to(cursor, { scale: 1 });
-    };
-
-    const handleFooterLeave = () => {
-      setIsFooter(false);
-      gsap.to(cursor, { scale: 1 });
-    };
-
-    const handleThankingEnter = () => {
-      setIsThanking(true);
-      gsap.to(cursor, { scale: 6 });
-    };
-
-    const handleThankingLeave = () => {
-      setIsThanking(false);
-      gsap.to(cursor, { scale: 1 });
-    };
-
-    menu.addEventListener("mouseenter", handleMenuEnter);
-    menu.addEventListener("mouseleave", handleMenuLeave);
-
-    videoElement.forEach((element) => {
-      element.addEventListener("mouseenter", handleVideoEnter);
-      element.addEventListener("mouseleave", handleVideoLeave);
-    });
-
-    btnHovering.forEach((element) => {
-      element.addEventListener("mouseenter", handleButtonEnter);
-      element.addEventListener("mouseleave", handleButtonLeave);
-    });
-
-    talkHovering.forEach((element) => {
-      element.addEventListener("mouseenter", handleTalkEnter);
-      element.addEventListener("mouseleave", handleTalkLeave);
-    });
-
-    linkedHovering.forEach((element) => {
-      element.addEventListener("mouseenter", handleLinkedEnter);
-      element.addEventListener("mouseleave", handleLinkedLeave);
-    });
-
-    projectHovering.forEach((element) => {
-      element.addEventListener("mouseenter", handleProjectEnter);
-      element.addEventListener("mouseleave", handleProjectLeave);
-    });
-
-    mailHovering.forEach((element) => {
-      element.addEventListener("mouseenter", handleMailEnter);
-      element.addEventListener("mouseleave", handleMailLeave);
-    });
-
-    footerHovering.forEach((element) => {
-      element.addEventListener("mouseenter", handleFooterEnter);
-      element.addEventListener("mouseleave", handleFooterLeave);
-    });
-
-    thanking.forEach((element) => {
-      element.addEventListener("mouseenter", handleThankingEnter);
-      element.addEventListener("mouseleave", handleThankingLeave);
+      cleanupFunctions.push(() => {
+        elements.forEach((element) => {
+          element.removeEventListener("mouseenter", handlers.enter);
+          element.removeEventListener("mouseleave", handlers.leave);
+        });
+      });
     });
 
     return () => {
-      menu.removeEventListener("mouseenter", handleMenuEnter);
-      menu.removeEventListener("mouseleave", handleMenuLeave);
-
-      videoElement.forEach((element) => {
-        element.removeEventListener("mouseenter", handleVideoEnter);
-        element.removeEventListener("mouseleave", handleVideoLeave);
-      });
-
-      btnHovering.forEach((element) => {
-        element.removeEventListener("mouseenter", handleButtonEnter);
-        element.removeEventListener("mouseleave", handleButtonLeave);
-      });
-
-      talkHovering.forEach((element) => {
-        element.removeEventListener("mouseenter", handleTalkEnter);
-        element.removeEventListener("mouseleave", handleTalkLeave);
-      });
-
-      linkedHovering.forEach((element) => {
-        element.removeEventListener("mouseenter", handleLinkedEnter);
-        element.removeEventListener("mouseleave", handleLinkedLeave);
-      });
-
-      projectHovering.forEach((element) => {
-        element.removeEventListener("mouseenter", handleProjectEnter);
-        element.removeEventListener("mouseleave", handleProjectLeave);
-      });
-
-      mailHovering.forEach((element) => {
-        element.removeEventListener("mouseenter", handleMailEnter);
-        element.removeEventListener("mouseleave", handleMailLeave);
-      });
-
-      footerHovering.forEach((element) => {
-        element.removeEventListener("mouseenter", handleFooterEnter);
-        element.removeEventListener("mouseleave", handleFooterLeave);
-      });
-
-      thanking.forEach((element) => {
-        element.removeEventListener("mouseenter", handleThankingEnter);
-        element.removeEventListener("mouseleave", handleThankingLeave);
-      });
+      cleanupFunctions.forEach((cleanup) => cleanup());
     };
-  }, []);
+  }, [createHoverHandlers]);
+
+  // Compute cursor styles
+  const cursorStyle = useMemo(() => {
+    if (!activeCursor) {
+      return {
+        className: "bg-black text-[0px]",
+        style: { backdropFilter: "blur(0px)", color: "#fff" },
+        emoji: "",
+      };
+    }
+
+    const config = CURSOR_STATES[activeCursor];
+    return {
+      className: `${config.bg} ${config.text}`,
+      style: {
+        backdropFilter: config.blur ? "blur(0.5px)" : "blur(0px)",
+        color: config.color || "#fff",
+      },
+      emoji: config.emoji,
+    };
+  }, [activeCursor]);
 
   return (
     <>
       <div
         id="welcome"
         style={{ display: isWelcomeAnimationComplete ? "none" : "block" }}
-        className="overflow-hidden"
-      >
+        className="overflow-hidden">
         <Welcome />
       </div>
       <div
@@ -300,8 +225,7 @@ function LandingPage(props: any) {
         style={{
           opacity: isWelcomeAnimationComplete ? 1 : 0,
           display: isWelcomeAnimationComplete ? "block" : "none",
-        }}
-      >
+        }}>
         <div className="relative w-full z-0 overflow-x-hidden">
           <div className="fixed z-10 w-full top-0 backdrop-blur-md bg-transparent overflow-hidden">
             <Navbar homeRef={homeRef} aboutRef={aboutRef} workRef={workRef} />
@@ -318,36 +242,9 @@ function LandingPage(props: any) {
         </div>
         <div
           ref={cursorRef}
-          style={{
-            backdropFilter:
-              isButton || isTalking || isMailing || isTalking
-                ? `blur(0.5px)`
-                : `blur(0px)`,
-            color: isLinked ? `#000` : `#fff`,
-          }}
-          className={`cursorCustom hidden h-3 w-3 fixed top-0 left-0 pointer-events-none z-[500] rounded-full text-white font-light overflow-hidden md:flex justify-center items-center text-center ${
-            isMenu ? `text-[2.5px] bg-black` : `text-[0px] bg-black`
-          } ${isVideo ? `text-[5px] bg-white` : `text-[0px] bg-black`}
-          ${isButton ? `bg-transparent text-[5px]` : `text-[0px] bg-black`}
-          ${isTalking ? `bg-transparent text-[5px]` : `text-[0px] bg-black`}
-          ${
-            isLinked
-              ? `bg-white text-[2.5px] font-medium`
-              : `text-[0px] bg-black`
-          }
-          ${isProject ? `bg-white/35 text-[5px]` : `text-[0px] bg-black`}
-          ${isMailing ? `bg-transparent text-[5px]` : `text-[0px] bg-black`}
-          ${isFooter ? `bg-white` : `bg-black`}
-          ${isThanking ? `bg-[#B2DE21] text-[5px]` : `bg-black`}`}
-        >
-          {`${isMenu ? "click me" : ""}`}
-          {`${isVideo ? "📽️" : ""}`}
-          {`${isButton ? "🤙🏽" : ""}`}
-          {`${isTalking ? "📞" : ""}`}
-          {`${isLinked ? "click me" : ""}`}
-          {`${isProject ? "👀" : ""}`}
-          {`${isMailing ? "✒️" : ""}`}
-          {`${isThanking ? "🤍" : ""}`}
+          style={cursorStyle.style}
+          className={`cursorCustom hidden h-3 w-3 fixed top-0 left-0 pointer-events-none z-[500] rounded-full font-light overflow-hidden md:flex justify-center items-center text-center ${cursorStyle.className}`}>
+          {cursorStyle.emoji}
         </div>
       </div>
     </>
