@@ -14,7 +14,7 @@ export const anton = Anton({
 });
 
 export const openSans = Open_Sans({
-  weight: ["300","400", "500", "600", "700", "800"],
+  weight: ["300", "400", "500", "600", "700", "800"],
   style: ["normal"],
   subsets: ["latin-ext", "latin", "vietnamese"],
   display: "swap",
@@ -40,8 +40,8 @@ function Projects(props: Props) {
       imageLink: "/projects/devlink.png",
       projectName: "DEVLINK",
       shortDes: "A DIGITAL CARD FOR DEVELOPERS TO CONNECT IN A FLASH!",
-      gitLink: "https://github.com/ShubhMehrotra19/DevLink-UI",
-      deployedLink: "https://devlink-rho.vercel.app/",
+      gitLink: "https://github.com/ShubhMehrotra19/devlinkv2",
+      deployedLink: "https://devlinkv2.vercel.app/",
     },
     {
       index: 3,
@@ -97,105 +97,97 @@ function Projects(props: Props) {
   return (
     <section
       ref={workRef}
-      className="md:mb-20 flex flex-col justify-center items-center md:mx-14 mx-4"
-    >
+      className="md:mb-20 flex flex-col justify-center items-center md:mx-14 mx-4">
       <div className="w-full flex justify-between items-end md:mb-40 mb-8">
-
         <div className="md:block w-full hidden">
-        <div className="w-full flex justify-between items-end">
-        <div className="w-full text-left flex flex-col justify-start items-start">
-          <p
-            className={`text-[80px] ${anton.className} leading-snug mb-12 w-full`}
-          >
-            DESIGNING DIGITAL <br /> PRODUCTS WITH EMPHASIS <br /> ON
-            <span className="text-[#b7b7b7] mb-8"> VISUAL DESIGN.</span>
-          </p>
-          <Link href="/contact">
-            <div
-              ref={talkRef}
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-              className={`talking px-8 py-4 text-base rounded-full text-white bg-black hover:bg-[#B2D12E] text-center ${openSans.className} hover:scale-105 active:scale-95 transition-all duration-300 ease-in-out flex justify-center items-center gap-2`}
-            >
-              LET'S TALK
-              <Image
-                src={
-                  isHovering
-                    ? "/icons/arrow_black.png"
-                    : "/icons/arrow_green.png"
-                }
-                alt=""
-                height={30}
-                width={30}
-              />
+          <div className="w-full flex justify-between items-end">
+            <div className="w-full text-left flex flex-col justify-start items-start">
+              <p
+                className={`text-[80px] ${anton.className} leading-snug mb-12 w-full`}>
+                DESIGNING DIGITAL <br /> PRODUCTS WITH EMPHASIS <br /> ON
+                <span className="text-[#b7b7b7] mb-8"> VISUAL DESIGN.</span>
+              </p>
+              <Link href="/contact">
+                <div
+                  ref={talkRef}
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
+                  className={`talking px-8 py-4 text-base rounded-full text-white bg-black hover:bg-[#B2D12E] text-center ${openSans.className} hover:scale-105 active:scale-95 transition-all duration-300 ease-in-out flex justify-center items-center gap-2`}>
+                  LET'S TALK
+                  <Image
+                    src={
+                      isHovering
+                        ? "/icons/arrow_black.png"
+                        : "/icons/arrow_green.png"
+                    }
+                    alt=""
+                    height={30}
+                    width={30}
+                  />
+                </div>
+              </Link>
             </div>
-          </Link>
+            <div
+              className={`text-left text-base font-medium ${openSans.className}`}>
+              AS A <span className="font-bold">WEB DEVELOPER</span> AND A{" "}
+              <span className="font-bold">UI DESIGNER</span>, MY PROJECTS
+              REFLECT A MAJOR PART OF MY{" "}
+              <span className="font-bold">CREATIVE AND DESIGN SKILLS.</span>{" "}
+              <br />I WORK IN A{" "}
+              <span className="font-bold">SYSTEMATIC PROCEDURE </span>
+              TO DELIVER PRODUCTS <br /> STARTING FROM CREATING{" "}
+              <span className="font-bold">WIREFRAMES</span> TO
+              <span className="font-bold">DESIGNING</span> AND CONVERTING THEM
+              TO A <span className="font-bold">DEPLOYED WEBSITE</span>.
+            </div>
+          </div>
         </div>
-        <div
-          className={`text-left text-base font-medium ${openSans.className}`}
-        >
-          AS A <span className="font-bold">WEB DEVELOPER</span> AND A{" "}
-          <span className="font-bold">UI DESIGNER</span>, MY PROJECTS REFLECT A
-          MAJOR PART OF MY{" "}
-          <span className="font-bold">CREATIVE AND DESIGN SKILLS.</span> <br />I
-          WORK IN A <span className="font-bold">SYSTEMATIC PROCEDURE </span>
-          TO DELIVER PRODUCTS <br /> STARTING FROM CREATING{" "}
-          <span className="font-bold">WIREFRAMES</span> TO
-          <span className="font-bold">DESIGNING</span> AND CONVERTING THEM TO A{" "}
-          <span className="font-bold">DEPLOYED WEBSITE</span>.
-        </div>
-        </div>
-        </div>
-
 
         <div className="md:hidden block">
-        <div className="w-full text-left flex flex-col justify-start items-start">
-        <p
-            className={`text-[40px] ${anton.className} leading-[1.2] mb-6 w-full`}
-          >
-            DESIGNING DIGITAL <br /> PRODUCTS WITH EMPHASIS <br /> ON
-            <span className="text-[#b7b7b7] mb-8"> VISUAL DESIGN.</span>
-          </p>
-          <div
-          className={`text-left text-sm font-medium mb-8 ${openSans.className}`}
-        >
-          AS A <span className="font-bold">WEB DEVELOPER</span> AND A{" "}
-          <span className="font-bold">UI DESIGNER</span>, MY PROJECTS REFLECT A
-          MAJOR PART OF MY{" "}
-          <span className="font-bold">CREATIVE AND DESIGN SKILLS.</span> <br />I
-          WORK IN A <span className="font-bold">SYSTEMATIC PROCEDURE </span>
-          TO DELIVER PRODUCTS <br /> STARTING FROM CREATING{" "}
-          <span className="font-bold">WIREFRAMES</span> TO
-          <span className="font-bold">DESIGNING</span> AND CONVERTING THEM TO A{" "}
-          <span className="font-bold">DEPLOYED WEBSITE</span>.
-        </div>
-        <Link href="/contact">
+          <div className="w-full text-left flex flex-col justify-start items-start">
+            <p
+              className={`text-[40px] ${anton.className} leading-[1.2] mb-6 w-full`}>
+              DESIGNING DIGITAL <br /> PRODUCTS WITH EMPHASIS <br /> ON
+              <span className="text-[#b7b7b7] mb-8"> VISUAL DESIGN.</span>
+            </p>
             <div
-              ref={talkRef}
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-              className={`talking px-5 py-2 text-sm rounded-full text-white bg-black hover:bg-[#B2D12E] text-center ${openSans.className} hover:scale-105 active:scale-95 transition-all duration-300 ease-in-out flex justify-center items-center gap-2`}
-            >
-              LET'S TALK
-              <Image
-                src={
-                  isHovering
-                    ? "/icons/arrow_black.png"
-                    : "/icons/arrow_green.png"
-                }
-                alt=""
-                height={30}
-                width={30}
-              />
+              className={`text-left text-sm font-medium mb-8 ${openSans.className}`}>
+              AS A <span className="font-bold">WEB DEVELOPER</span> AND A{" "}
+              <span className="font-bold">UI DESIGNER</span>, MY PROJECTS
+              REFLECT A MAJOR PART OF MY{" "}
+              <span className="font-bold">CREATIVE AND DESIGN SKILLS.</span>{" "}
+              <br />I WORK IN A{" "}
+              <span className="font-bold">SYSTEMATIC PROCEDURE </span>
+              TO DELIVER PRODUCTS <br /> STARTING FROM CREATING{" "}
+              <span className="font-bold">WIREFRAMES</span> TO
+              <span className="font-bold">DESIGNING</span> AND CONVERTING THEM
+              TO A <span className="font-bold">DEPLOYED WEBSITE</span>.
             </div>
-          </Link>
+            <Link href="/contact">
+              <div
+                ref={talkRef}
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+                className={`talking px-5 py-2 text-sm rounded-full text-white bg-black hover:bg-[#B2D12E] text-center ${openSans.className} hover:scale-105 active:scale-95 transition-all duration-300 ease-in-out flex justify-center items-center gap-2`}>
+                LET'S TALK
+                <Image
+                  src={
+                    isHovering
+                      ? "/icons/arrow_black.png"
+                      : "/icons/arrow_green.png"
+                  }
+                  alt=""
+                  height={30}
+                  width={30}
+                />
+              </div>
+            </Link>
           </div>
         </div>
       </div>
       <div className="w-full flex justify-start my-12">
         <h2
-          className={`${anton.className} md:text-[60px] text-[40px] pb-1 border-b-[3px] border-black`}
-        >
+          className={`${anton.className} md:text-[60px] text-[40px] pb-1 border-b-[3px] border-black`}>
           SELECTED WORKS
         </h2>
       </div>
